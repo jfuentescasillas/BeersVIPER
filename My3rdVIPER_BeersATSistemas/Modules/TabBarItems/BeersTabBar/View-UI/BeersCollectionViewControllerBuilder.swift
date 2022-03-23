@@ -20,6 +20,7 @@ class BeersCollectionViewControllerBuilder {
 		presenter.view = viewController
 		presenter.interactor = interactor
 		presenter.wireframe = wireframe
+        wireframe.view = viewController
 		
 		return viewController
 	}
