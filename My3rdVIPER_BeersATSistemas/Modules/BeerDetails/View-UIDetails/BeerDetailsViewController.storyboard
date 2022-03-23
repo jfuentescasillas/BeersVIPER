@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Beer Details View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BeerDetailsViewController" id="Y6W-OH-hqX" customClass="BeerDetailsViewController" customModule="My3rdVIPER_BeersATSistemas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeerTitle:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgz-Jm-PHR">
+                                <rect key="frame" x="2" y="46" width="410" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="BZ5-OY-6TG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeerDescription:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Za-ya-mQM">
+                                <rect key="frame" x="2" y="92" width="410" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TagLine:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-x1-g7H">
+                                <rect key="frame" x="2" y="116.5" width="410" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hgz-Jm-PHR" secondAttribute="trailing" constant="2" id="Ee0-4O-OTt"/>
+                            <constraint firstItem="4Za-ya-mQM" firstAttribute="top" secondItem="hgz-Jm-PHR" secondAttribute="bottom" constant="2" id="KKD-5Y-JTL"/>
+                            <constraint firstItem="hgz-Jm-PHR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="2" id="KON-59-cpG"/>
+                            <constraint firstItem="n1A-x1-g7H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="2" id="LMy-Vd-hff"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="n1A-x1-g7H" secondAttribute="trailing" constant="2" id="SQQ-p0-kVt"/>
+                            <constraint firstItem="4Za-ya-mQM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="2" id="ZQC-hc-wYY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4Za-ya-mQM" secondAttribute="trailing" constant="2" id="bxO-i6-OdO"/>
+                            <constraint firstItem="n1A-x1-g7H" firstAttribute="top" secondItem="4Za-ya-mQM" secondAttribute="bottom" constant="4" id="gZ7-2g-Tbj"/>
+                            <constraint firstItem="hgz-Jm-PHR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="2" id="nTv-4H-Opg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerDescriptionDetailsLbl" destination="4Za-ya-mQM" id="Bhi-qG-RyX"/>
+                        <outlet property="beerNameDetailsLbl" destination="hgz-Jm-PHR" id="NPJ-Ec-N5l"/>
+                        <outlet property="beerTaglineDetailsLbl" destination="n1A-x1-g7H" id="8Sc-T1-3k7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="35.491071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
