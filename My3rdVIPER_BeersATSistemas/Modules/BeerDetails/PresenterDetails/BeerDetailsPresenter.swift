@@ -21,6 +21,7 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	
 	
 	func viewDidLoad() {
+        interactor?.output = self
 		buildDetailsViewModel()
 	}
 	
