@@ -37,7 +37,7 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 
 // MARK: - Extension: BeerDetailsInteractorOutputContract
 extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
-	func didFetch(beer: BeerModel) {
+	func didFetch(beer: [BeerModel]) {
 		print("Beer in didFetch (in BeerDetailsPresenter, InteractorOutputContract): \(beer)")		
 	}
 	

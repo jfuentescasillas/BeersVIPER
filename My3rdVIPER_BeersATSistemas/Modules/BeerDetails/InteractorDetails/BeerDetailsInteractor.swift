@@ -11,10 +11,12 @@ import Foundation
 
 class BeerDetailsInteractor: BeerDetailsInteractorContract {
 	var output: BeerDetailsInteractorOutputContract?
-	var beer: BeerModel?
+	var beer: [BeerModel]?
 	
 	func fetchBeer(withID: Int) {
 		let beerURLWithID = "https://api.punkapi.com/v2/beers/\(withID)"
+		print("beerURLWithID: \(beerURLWithID)")
+		
 		guard let url = URL(string: beerURLWithID) else {
 			output?.fetchDidFail(error: "Error with BeerID request")
 			
@@ -33,7 +35,7 @@ class BeerDetailsInteractor: BeerDetailsInteractorContract {
 				
 				do {
 					let decoder = JSONDecoder()
-					self.beer = try decoder.decode(BeerModel.self, from: beerData)
+					self.beer = try decoder.decode([BeerModel].self, from: beerData)
 					
 					// Send back the data to Interactor, so that the Interactor sends it back to the Presenter
 					self.output?.didFetch(beer: self.beer!)

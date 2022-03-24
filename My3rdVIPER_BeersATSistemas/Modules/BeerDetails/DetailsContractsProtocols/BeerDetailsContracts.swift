@@ -34,6 +34,6 @@ protocol BeerDetailsInteractorContract: AnyObject {
 
 
 protocol BeerDetailsInteractorOutputContract: AnyObject {
-	func didFetch(beer: BeerModel)
+	func didFetch(beer: [BeerModel])
 	func fetchDidFail(error: String)
 }
