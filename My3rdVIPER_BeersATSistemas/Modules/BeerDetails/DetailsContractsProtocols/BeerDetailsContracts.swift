@@ -12,7 +12,7 @@ import UIKit
 protocol BeerDetailsViewContract: UIViewController {
 	var presenter: BeerDetailsPresenterContract? { get set }
 	
-	func configure(/*with beerDetailsViewModel: BeerDetailsViewModel?*/)
+	func configure(with beerDetailsViewModel: BeerDetailsViewModel?)
 }
 
 

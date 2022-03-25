@@ -27,7 +27,6 @@ struct BeerDetailsViewModel {
 class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	// MARK: - Properties related to the ViewContract
 	var presenter: BeerDetailsPresenterContract?
-	var detailsViewModel: BeerDetailsViewModel?
 	
 	// MARK: - Elements in Storyboard
 	@IBOutlet weak var beerNameDetailsLbl: UILabel!
@@ -39,16 +38,22 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		presenter?.viewDidLoad()
+		presenter?.viewDidLoad()		
     }
 	
 	
 	// MARK: - Methods related to the ViewContract	
-	func configure() {
-		guard let detailsViewModel = detailsViewModel else { return }
-
-		beerNameDetailsLbl.text = detailsViewModel.beerDetailsName
-		beerDescriptionDetailsLbl.text = detailsViewModel.beerDetailsDescription
-		beerTaglineDetailsLbl.text = detailsViewModel.beerDetailsTagline
+	func configure(with beerDetailsViewModel: BeerDetailsViewModel?) {
+		guard let detailsViewModel = beerDetailsViewModel else { return }
+		
+		print("----------------")
+		print("DetailsViewModel (inside BeerDetailsViewController, at configure(with...): \n \(detailsViewModel) ")
+		
+		DispatchQueue.main.async {
+			self.title = detailsViewModel.beerDetailsName
+			self.beerNameDetailsLbl.text = detailsViewModel.beerDetailsName
+			self.beerDescriptionDetailsLbl.text = detailsViewModel.beerDetailsDescription
+			self.beerTaglineDetailsLbl.text = detailsViewModel.beerDetailsTagline
+		}
 	}
 }

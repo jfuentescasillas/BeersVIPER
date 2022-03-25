@@ -18,7 +18,7 @@ class BeerDetailsViewControllerBuilder {
 		let interactor = BeerDetailsInteractor()
 		
         viewController.presenter = presenter//buildPresenter(beerID: beerID)
-        viewController.configure()
+        //viewController.configure()
 		presenter.view = viewController
 		presenter.interactor = interactor
 		
