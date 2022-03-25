@@ -49,12 +49,6 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 		
 		wireframe?.navigate(to: beerID)
 	}
-	
-	
-	// MARK: - Class private methods (not related with the PresenterContract)
-	/*private func fetchBeers() {
-	 
-	 }*/
 }
 
 
