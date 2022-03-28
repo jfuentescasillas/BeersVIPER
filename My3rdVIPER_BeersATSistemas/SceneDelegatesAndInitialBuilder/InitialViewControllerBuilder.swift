@@ -38,4 +38,10 @@ class InitialViewControllerBuilder {
 		
 		return navController
 	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
+	}
 }

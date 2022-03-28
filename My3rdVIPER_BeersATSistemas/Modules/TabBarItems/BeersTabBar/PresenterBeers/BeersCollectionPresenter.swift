@@ -49,6 +49,12 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 		
 		wireframe?.navigate(to: beerID)
 	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
+	}
 }
 
 

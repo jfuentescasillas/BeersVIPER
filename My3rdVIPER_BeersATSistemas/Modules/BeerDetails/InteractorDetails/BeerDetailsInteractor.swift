@@ -50,4 +50,10 @@ class BeerDetailsInteractor: BeerDetailsInteractorContract {
 		
 		task.resume()
 	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
+	}
 }

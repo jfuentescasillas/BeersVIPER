@@ -62,8 +62,8 @@
             filePath = "My3rdVIPER_BeersATSistemas/Modules/BeerDetails/View-UIDetails/BeerDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "configure(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "My3rdVIPER_BeersATSistemas/Modules/BeerDetails/PresenterDetails/BeerDetailsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "didFetch(beer:)"
             landmarkType = "7">
          </BreakpointContent>

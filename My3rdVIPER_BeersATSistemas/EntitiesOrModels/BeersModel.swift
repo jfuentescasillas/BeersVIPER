@@ -24,7 +24,7 @@ struct BeerModel: Codable {
 	let ingredients: Ingredients*/
 	let foodPairing: [String]
 	let brewersTips: String
-	let contributedBy: ContributedBy
+	let contributedBy: String
 	
 	enum CodingKeys: String, CodingKey {
 		case id, name, tagline
@@ -46,11 +46,11 @@ struct BeerModel: Codable {
 }
 
 
-enum ContributedBy: String, Codable {
+/*enum ContributedBy: String, Codable {
 	case aliSkinnerAliSkinner = "Ali Skinner <AliSkinner>"
 	case mattBallGeordieMatt  = "Matt Ball <GeordieMatt>"
 	case samMasonSamjbmason   = "Sam Mason <samjbmason>"
-}
+}*/
 
 
 // MARK: - Extension: BeerModel
@@ -59,10 +59,6 @@ extension BeerModel {
 		return BeerCollectionViewCellViewModel(beerImageURL: URL(string: imageURL), beerName: name, beerDescription: beerDescription)
 	}
 	var toDetailsViewModel: BeerDetailsViewModel {
-		return BeerDetailsViewModel(beerDetailsID: id, beerDetailsName: name,
-									beerDetailsDescription: beerDescription, beerDetails1stBrewed: firstBrewed,
-									beerDetailsTagline: tagline, beerDetailsimageURL: URL(string: imageURL),
-									beerDetailsAbv: abv, beerDetailsPH: ph, beerDetailsFoodPairing: foodPairing,
-									beerDetailsBrewersTips: brewersTips, beerDetailsContributedBy: contributedBy)
+		return BeerDetailsViewModel(beerDetailsID: id, beerDetailsName: name, beerDetailsDescription: beerDescription, beerDetails1stBrewed: firstBrewed, beerDetailsTagline: tagline, beerDetailsimageURL: URL(string: imageURL), beerDetailsAbv: abv, beerDetailsPH: ph, beerDetailsOrigGrav: targetOg, beerDetailsFinalGrav: targetFg, beerDetailsAttenuationLvl: attenuationLevel, beerDetailsSRM: srm, beerDetailsEBC: ebc, beerDetailsIBU: ibu, beerDetailsFoodPairing: foodPairing, beerDetailsBrewersTips: brewersTips, beerDetailsContributedBy: contributedBy)
 	}
 }

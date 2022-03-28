@@ -10,7 +10,7 @@ import Foundation
 
 
 class BeerDetailsPresenter: BeerDetailsPresenterContract {
-	var view: BeerDetailsViewContract?
+	weak var view: BeerDetailsViewContract?
 	var interactor: BeerDetailsInteractorContract?
 	var beerID: Int?
 	var beer: BeerModel?
@@ -30,6 +30,12 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	func buildDetailsViewModel() /*-> BeerDetailsViewModel*/ {
 		print("beerID: \(String(describing: beerID)) (insideBeerDetailsPresenter)")
 		interactor?.fetchBeer(withID: beerID ?? 1)
+	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
 	}
 }
 
