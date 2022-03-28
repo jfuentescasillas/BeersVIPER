@@ -24,7 +24,7 @@ struct BeerModel: Codable {
 	let ingredients: Ingredients*/
 	let foodPairing: [String]
 	let brewersTips: String
-	let contributedBy: String
+	let contributedBy: String  //ContributedBy
 	
 	enum CodingKeys: String, CodingKey {
 		case id, name, tagline

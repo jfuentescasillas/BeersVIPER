@@ -26,7 +26,7 @@ struct BeerDetailsViewModel {
 	let beerDetailsIBU: Double?
 	let beerDetailsFoodPairing: [String]?
 	let beerDetailsBrewersTips: String?
-	let beerDetailsContributedBy: String
+	let beerDetailsContributedBy: String  // ContributedBy
 }
 
 
@@ -74,9 +74,9 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 			
 			self.beerImageDetailsImg.downloaded(from: beerURL)
 			self.beerDescriptionDetailsLbl.text = detailsViewModel.beerDetailsDescription
-			self.firstBrewDetailsLbl.text = detailsViewModel.beerDetails1stBrewed
-			self.abvDetailsLbl.text = "\(String(describing: detailsViewModel.beerDetailsAbv ?? 4.5))"
-			self.beerTaglineDetailsLbl.text = detailsViewModel.beerDetailsTagline
+			self.firstBrewDetailsLbl.text 		= detailsViewModel.beerDetails1stBrewed
+			self.abvDetailsLbl.text 			= "\(String(describing: detailsViewModel.beerDetailsAbv ?? 4.5))"
+			self.beerTaglineDetailsLbl.text 	= detailsViewModel.beerDetailsTagline
 			
 			// ** Filling the Food Pairing Label **
 			var tempFoodPairing = [String]()
@@ -86,18 +86,18 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 				tempFoodPairing.append(favBeerFoodPairingAux)
 			}
 			
-			 self.foodPairingDetailsLbl.text = tempFoodPairing.joined(separator: "\n")
+			 self.foodPairingDetailsLbl.text = tempFoodPairing.joined(separator: "")
 			// ** Finished the Filling of the Food Pairing Label **
 			
-			self.brewersTipsDetailsLbl.text = detailsViewModel.beerDetailsBrewersTips
-			self.originalGravityDetailsLbl.text = "\(detailsViewModel.beerDetailsOrigGrav ?? 0)"
-			self.finalGravityDetailsLbl.text = "\(detailsViewModel.beerDetailsFinalGrav ?? 0)"
+			self.brewersTipsDetailsLbl.text 	 = detailsViewModel.beerDetailsBrewersTips
+			self.originalGravityDetailsLbl.text  = "\(detailsViewModel.beerDetailsOrigGrav ?? 0)"
+			self.finalGravityDetailsLbl.text 	 = "\(detailsViewModel.beerDetailsFinalGrav ?? 0)"
 			self.attenuationLevelDetailsLbl.text = "\(detailsViewModel.beerDetailsAttenuationLvl ?? 0)"
-			self.srmDetailsLbl.text = "\(detailsViewModel.beerDetailsSRM ?? 0)"
-			self.ebcDetailsLbl.text = "\(detailsViewModel.beerDetailsEBC ?? 0)"
-			self.ibuDetailsLbl.text = "\(detailsViewModel.beerDetailsIBU ?? 0)"
-			self.phDetailsLbl.text = "\(detailsViewModel.beerDetailsPH ?? 0)"
-			self.contributionDetailsLbl.text = "\(String(describing: detailsViewModel.beerDetailsContributedBy))"
+			self.srmDetailsLbl.text 		 	 = "\(detailsViewModel.beerDetailsSRM ?? 0)"
+			self.ebcDetailsLbl.text 		 	 = "\(detailsViewModel.beerDetailsEBC ?? 0)"
+			self.ibuDetailsLbl.text 		 	 = "\(detailsViewModel.beerDetailsIBU ?? 0)"
+			self.phDetailsLbl.text  		 	 = "\(detailsViewModel.beerDetailsPH ?? 0)"
+			self.contributionDetailsLbl.text 	 = "\(String(describing: detailsViewModel.beerDetailsContributedBy))"
 		}
 	}
 }
