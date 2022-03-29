@@ -14,6 +14,8 @@ protocol BeersCollectionViewContract: UIViewController {
 	var presenter: BeerCollectionPresenterContract? { get set }
 	
 	func reloadData()
+	func startActivity()
+	func stopAndHideActivity()
 }
 
 
@@ -28,6 +30,7 @@ protocol BeerCollectionPresenterContract: AnyObject {
 	func viewDidLoad()  // This one tells the Presenter that all is ready to work
 	func cellViewModel(at indexPath: IndexPath) -> BeerCollectionViewCellViewModel
 	func didSelectItem(at indexPath: IndexPath)
+	func fetchNextItems()
 }
 
 
@@ -35,7 +38,7 @@ protocol BeerCollectionPresenterContract: AnyObject {
 protocol BeerCollectionInteractorContract: AnyObject {
 	var output: BeerCollectionInteractorOutputContract? { get set }
 	
-	func fetchBeers()
+	func fetchBeers(pageNumber: Int)
 }
 
 

@@ -12,18 +12,18 @@ import Foundation
 struct BeerModel: Codable {
 	let id: Int
 	let name, tagline, firstBrewed, beerDescription: String
-	let imageURL: String
-	let abv: Double
+	let imageURL: String?
+	let abv: Double?
 	let ibu: Double?
-	let targetFg: Int
-	let targetOg: Double
+	let targetFg: Int?
+	let targetOg: Double?
 	let ebc, srm, ph: Double?
-	let attenuationLevel: Double
+	let attenuationLevel: Double?
 	/*let volume, boilVolume: BoilVolume
 	let method: Method
 	let ingredients: Ingredients*/
-	let foodPairing: [String]
-	let brewersTips: String
+	let foodPairing: [String]?
+	let brewersTips: String?
 	let contributedBy: String  //ContributedBy
 	
 	enum CodingKeys: String, CodingKey {
@@ -56,9 +56,9 @@ struct BeerModel: Codable {
 // MARK: - Extension: BeerModel
 extension BeerModel {
 	var toCollectionCellViewModel: BeerCollectionViewCellViewModel {
-		return BeerCollectionViewCellViewModel(beerImageURL: URL(string: imageURL), beerName: name, beerDescription: beerDescription)
+		return BeerCollectionViewCellViewModel(beerImageURL: URL(string: imageURL ?? "https://images.punkapi.com/v2/keg.png"), beerName: name, beerDescription: beerDescription)
 	}
 	var toDetailsViewModel: BeerDetailsViewModel {
-		return BeerDetailsViewModel(beerDetailsID: id, beerDetailsName: name, beerDetailsDescription: beerDescription, beerDetails1stBrewed: firstBrewed, beerDetailsTagline: tagline, beerDetailsimageURL: URL(string: imageURL), beerDetailsAbv: abv, beerDetailsPH: ph, beerDetailsOrigGrav: targetOg, beerDetailsFinalGrav: targetFg, beerDetailsAttenuationLvl: attenuationLevel, beerDetailsSRM: srm, beerDetailsEBC: ebc, beerDetailsIBU: ibu, beerDetailsFoodPairing: foodPairing, beerDetailsBrewersTips: brewersTips, beerDetailsContributedBy: contributedBy)
+		return BeerDetailsViewModel(beerDetailsID: id, beerDetailsName: name, beerDetailsDescription: beerDescription, beerDetails1stBrewed: firstBrewed, beerDetailsTagline: tagline, beerDetailsimageURL: URL(string: imageURL ?? "https://images.punkapi.com/v2/keg.png"), beerDetailsAbv: abv, beerDetailsPH: ph, beerDetailsOrigGrav: targetOg, beerDetailsFinalGrav: targetFg, beerDetailsAttenuationLvl: attenuationLevel, beerDetailsSRM: srm, beerDetailsEBC: ebc, beerDetailsIBU: ibu, beerDetailsFoodPairing: foodPairing, beerDetailsBrewersTips: brewersTips, beerDetailsContributedBy: contributedBy)
 	}
 }

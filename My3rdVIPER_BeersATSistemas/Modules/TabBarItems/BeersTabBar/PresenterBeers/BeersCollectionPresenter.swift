@@ -26,11 +26,19 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 			view?.reloadData()
 		}
 	}
+	private var pageNumber: Int  = 1  // This is needed for the pagination
+	var hasMoreBeers: Bool 		 = true
+	var isLoadingMoreBeers: Bool = false
 	
 	
+	// MARK: - Methods related with the PresenterContract
 	func viewDidLoad() {
+		isLoadingMoreBeers = true
+		
 		interactor?.output = self
-		interactor?.fetchBeers()
+		interactor?.fetchBeers(pageNumber: pageNumber)
+		
+		view?.startActivity()
 	}
 	
 	
@@ -50,6 +58,19 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	}
 	
 	
+	func fetchNextItems() {
+		guard !isLoadingMoreBeers && hasMoreBeers else { return }
+		
+		isLoadingMoreBeers = true
+		pageNumber += 1
+		/*print("PageNumber: \(pageNumber)")
+		print("isLoadingMoreBeers (it should be 'true'): \(isLoadingMoreBeers)")*/
+		
+		interactor?.fetchBeers(pageNumber: pageNumber)
+		view?.startActivity()
+	}
+	
+	
 	// MARK: - Deinit
 	deinit {
 		print("Deinit \(self)")
@@ -61,7 +82,20 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 	// The presenter receives the data from the Interactor. The methods below are called from the Interactor
 	func didFetch(beers: [BeerModel]) {
-		self.beers = beers
+		print("beers.count (insideDidFecth): \(beers.count)")
+		
+		if beers.count != 80 {
+			hasMoreBeers = false
+		}
+		
+		self.beers += beers
+		print("Self.beers: \(self.beers)")
+		print("Self.beers.count: \(self.beers.count)")
+		
+		isLoadingMoreBeers = false
+		//print("isLoadingMoreBeers (it should be 'false'): \(isLoadingMoreBeers)")
+		
+		view?.stopAndHideActivity()
 	}
 	
 	

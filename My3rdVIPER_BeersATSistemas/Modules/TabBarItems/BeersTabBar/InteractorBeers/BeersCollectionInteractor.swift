@@ -16,14 +16,15 @@ class BeersCollectionInteractor: BeerCollectionInteractorContract {
 	var beers = [BeerModel]()
 	
 	
-	func fetchBeers() {
-		let beerUrl: String = "https://api.punkapi.com/v2/beers?page=1&per_page=80"
+	func fetchBeers(pageNumber: Int) {
+		let beerUrl: String = "https://api.punkapi.com/v2/beers?page=\(pageNumber)&per_page=80"
 		guard let url = URL(string: beerUrl) else {
 			output?.fetchDidFail(error: "Error in Beer URL")
 			
 			return
 		}
 		
+		print("FetchBeers in CollectionInteractor. URL: \(url)")
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { (beerData, beerResponse, beerError) in
 			guard let beerData = beerData, beerError == nil, let beerResponse = beerResponse as? HTTPURLResponse else {
@@ -32,11 +33,13 @@ class BeersCollectionInteractor: BeerCollectionInteractorContract {
 
 			// Conection is valid
 			if beerResponse.statusCode == 200 {
-				//print("This is the Beer Data: \(beerData)")
+				/*print("This is the Beer Data (Inside CollectionInteractor): \(beerData)")
+				print("self.beers BEFORE JSONDecoder(): \(self.beers)")*/
 				
 				do {
 					let decoder = JSONDecoder()
 					self.beers = try decoder.decode([BeerModel].self, from: beerData)
+					//print("self.beers AFTER JSONDecoder(): \(self.beers)")
 					
 					// Send back the data to Interactor, so that the Interactor sends it back to the Presenter
 					self.output?.didFetch(beers: self.beers)

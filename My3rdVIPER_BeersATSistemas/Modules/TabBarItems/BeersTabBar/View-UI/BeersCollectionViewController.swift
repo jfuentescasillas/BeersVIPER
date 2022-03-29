@@ -12,8 +12,9 @@ import UIKit
 class BeersCollectionViewController: UIViewController, BeersCollectionViewContract {
 	// MARK: Properties
 	var presenter: BeerCollectionPresenterContract?
-	private let numberOfColumns: CGFloat = 1
+	
 	private var cellLayout: UICollectionViewFlowLayout {
+		let numberOfColumns: CGFloat = 1  // For this app in particular, use the value of 1, otherwise reconfigure the cell
 		let layout = UICollectionViewFlowLayout()
 		layout.minimumInteritemSpacing = 10  // Minimal space between cells
 		layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 30, right: 10)  // margins of each section
@@ -33,6 +34,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 		
 	// Elements of Storyboard
 	@IBOutlet weak var beersCollectionView: UICollectionView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 		
 	// MARK: - Life cycle
@@ -47,6 +49,27 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	func reloadData() {
 		DispatchQueue.main.async {
 			self.beersCollectionView.reloadData()
+		}
+	}
+	
+	
+	// Activity Indicator Controllers
+	func startActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.startAnimating()
+			self.beersCollectionView.isHidden = true
+		}
+	}
+	
+	
+	func stopAndHideActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.stopAnimating()
+			self.activityIndicator.hidesWhenStopped = true
+			
+			self.beersCollectionView.isHidden = false
+			// layoutIfNeeded() is needed in order to see the elements of the collection view in the last cell, otherwise, when the pagination is done, the collection view shows the requested items from the beginning (array's 1st item), and not from the array's last item (which is what is wanted)
+			self.beersCollectionView.layoutIfNeeded()
 		}
 	}
 	
@@ -84,5 +107,17 @@ extension BeersCollectionViewController: UICollectionViewDataSource {
 extension BeersCollectionViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		presenter?.didSelectItem(at: indexPath)
+	}
+	
+	
+	// MARK: - Pagination
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		let offsetY 		= scrollView.contentOffset.y  // y coordinate (up and down)
+		let contentHeight 	= scrollView.contentSize.height  // The entire scrollview, if there are 5,000 items, it will be very tall
+		let height 			= scrollView.frame.size.height  // Screen's height
+		
+		if (offsetY > (contentHeight - height)) {
+			presenter?.fetchNextItems()
+		}
 	}
 }

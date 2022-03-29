@@ -96,17 +96,24 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="6pq-AI-NBi"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KIH-Uo-HVg">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="KV3-Vx-ELx" secondAttribute="bottom" id="RCO-Ts-VXh"/>
+                            <constraint firstItem="KIH-Uo-HVg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Sc6-0V-aeq"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZO9-F9-ZwE"/>
+                            <constraint firstItem="KIH-Uo-HVg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="bGp-5g-U9W"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="iQr-4e-Mnp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KV3-Vx-ELx" secondAttribute="trailing" id="tLM-Vd-QLs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="KIH-Uo-HVg" id="0uS-rW-3ey"/>
                         <outlet property="beersCollectionView" destination="KV3-Vx-ELx" id="gIv-Oq-qaQ"/>
                     </connections>
                 </viewController>
@@ -118,6 +125,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
