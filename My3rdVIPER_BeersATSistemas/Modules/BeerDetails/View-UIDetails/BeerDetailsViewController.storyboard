@@ -55,8 +55,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABV(%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-Rt-PD5" userLabel="ABVLabel">
-                                                        <rect key="frame" x="213.5" y="32.5" width="66.5" height="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABV(%): " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-Rt-PD5" userLabel="ABVLabel">
+                                                        <rect key="frame" x="204" y="32.5" width="76" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="m01-y6-ggQ"/>
                                                         </constraints>

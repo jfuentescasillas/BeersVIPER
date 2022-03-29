@@ -82,15 +82,15 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 	// The presenter receives the data from the Interactor. The methods below are called from the Interactor
 	func didFetch(beers: [BeerModel]) {
-		print("beers.count (insideDidFecth): \(beers.count)")
+		//print("beers.count (insideDidFecth): \(beers.count)")
 		
-		if beers.count != 80 {
+		if beers.count < 80 {
 			hasMoreBeers = false
 		}
 		
 		self.beers += beers
-		print("Self.beers: \(self.beers)")
-		print("Self.beers.count: \(self.beers.count)")
+		/*print("Self.beers: \(self.beers)")
+		print("Self.beers.count: \(self.beers.count)")*/
 		
 		isLoadingMoreBeers = false
 		//print("isLoadingMoreBeers (it should be 'false'): \(isLoadingMoreBeers)")

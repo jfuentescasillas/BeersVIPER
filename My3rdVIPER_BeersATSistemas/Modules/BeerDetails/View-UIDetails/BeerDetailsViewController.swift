@@ -26,7 +26,7 @@ struct BeerDetailsViewModel {
 	let beerDetailsIBU: Double?
 	let beerDetailsFoodPairing: [String]?
 	let beerDetailsBrewersTips: String?
-	let beerDetailsContributedBy: String  // ContributedBy
+	let beerDetailsContributedBy: String
 }
 
 

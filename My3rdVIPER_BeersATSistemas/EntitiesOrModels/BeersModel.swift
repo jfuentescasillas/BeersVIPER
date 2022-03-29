@@ -46,13 +46,6 @@ struct BeerModel: Codable {
 }
 
 
-/*enum ContributedBy: String, Codable {
-	case aliSkinnerAliSkinner = "Ali Skinner <AliSkinner>"
-	case mattBallGeordieMatt  = "Matt Ball <GeordieMatt>"
-	case samMasonSamjbmason   = "Sam Mason <samjbmason>"
-}*/
-
-
 // MARK: - Extension: BeerModel
 extension BeerModel {
 	var toCollectionCellViewModel: BeerCollectionViewCellViewModel {

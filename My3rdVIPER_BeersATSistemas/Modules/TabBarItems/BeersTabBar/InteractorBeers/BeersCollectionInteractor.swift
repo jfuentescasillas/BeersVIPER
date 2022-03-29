@@ -24,7 +24,7 @@ class BeersCollectionInteractor: BeerCollectionInteractorContract {
 			return
 		}
 		
-		print("FetchBeers in CollectionInteractor. URL: \(url)")
+		//print("FetchBeers in CollectionInteractor. URL: \(url)")
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { (beerData, beerResponse, beerError) in
 			guard let beerData = beerData, beerError == nil, let beerResponse = beerResponse as? HTTPURLResponse else {

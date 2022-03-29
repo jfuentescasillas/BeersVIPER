@@ -11,8 +11,6 @@ import UIKit
 
 class BeerDetailsViewControllerBuilder {
 	func build(beerID: Int) -> UIViewController {
-		//print("BeerID: \(beerID) (inside DetailsVCBuilder)")
-        
 		let viewController = BeerDetailsViewController.createFromStoryboard()
 		let presenter = BeerDetailsPresenter(beerID: beerID)
 		let interactor = BeerDetailsInteractor()

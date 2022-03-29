@@ -9,6 +9,7 @@
 import UIKit
 
 
+// MARK: - View Contract/Protocol
 protocol BeerDetailsViewContract: UIViewController {
 	var presenter: BeerDetailsPresenterContract? { get set }
 	
@@ -18,16 +19,18 @@ protocol BeerDetailsViewContract: UIViewController {
 }
 
 
+// MARK: - Presenter Contract/Protocol
 protocol BeerDetailsPresenterContract: AnyObject {
 	var view: BeerDetailsViewContract? { get set }
 	var interactor: BeerDetailsInteractorContract? { get set }
 	var beerID: Int? { get set }
 	
 	func viewDidLoad()
-	func buildDetailsViewModel() // -> BeerDetailsViewModel
+	func buildDetailsViewModel()
 }
 
 
+// MARK: - Interactor Contracts/Protocols
 protocol BeerDetailsInteractorContract: AnyObject {
 	var output: BeerDetailsInteractorOutputContract? { get set }
 	
