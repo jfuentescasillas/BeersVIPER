@@ -15,7 +15,7 @@ class BeerDetailsInteractor: BeerDetailsInteractorContract {
 	
 	func fetchBeer(withID: Int) {
 		let beerURLWithID = "https://api.punkapi.com/v2/beers/\(withID)"
-		print("beerURLWithID: \(beerURLWithID)")
+		//print("beerURLWithID: \(beerURLWithID)")
 		
 		guard let url = URL(string: beerURLWithID) else {
 			output?.fetchDidFail(error: "Error with BeerID request")

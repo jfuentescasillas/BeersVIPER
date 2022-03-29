@@ -50,7 +50,10 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	@IBOutlet weak var ibuDetailsLbl: UILabel!
 	@IBOutlet weak var phDetailsLbl: UILabel!
 	@IBOutlet weak var contributionDetailsLbl: UILabel!
-	
+		
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+		
 	
 	// MARK: - Life Cycle
     override func viewDidLoad() {
@@ -64,8 +67,8 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	func configure(with beerDetailsViewModel: BeerDetailsViewModel?) {
 		guard let detailsViewModel = beerDetailsViewModel else { return }
 		
-		print("----------------")
-		print("DetailsViewModel (inside BeerDetailsViewController, at configure(with...): \n \(detailsViewModel) ")
+		/*print("----------------")
+		print("DetailsViewModel (inside BeerDetailsViewController, at configure(with...): \n \(detailsViewModel) ")*/
 		
 		DispatchQueue.main.async {
 			self.title = detailsViewModel.beerDetailsName
@@ -99,5 +102,29 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 			self.phDetailsLbl.text  		 	 = "\(detailsViewModel.beerDetailsPH ?? 0)"
 			self.contributionDetailsLbl.text 	 = "\(String(describing: detailsViewModel.beerDetailsContributedBy))"
 		}
+	}
+	
+	
+	// MARK: - Activity Indicator Controllers
+	func startActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.startAnimating()
+			self.scrollView.isHidden = true
+		}
+	}
+	
+	
+	func stopAndHideActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.stopAnimating()
+			self.activityIndicator.hidesWhenStopped = true
+			self.scrollView.isHidden = false
+		}
+	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
 	}
 }

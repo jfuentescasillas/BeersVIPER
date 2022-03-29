@@ -31,7 +31,6 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	func viewDidLoad() {
 		interactor?.output = self
 		interactor?.fetchBeers()
-		//fetchBeers()
 	}
 	
 	
@@ -44,8 +43,8 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	
 	func didSelectItem(at indexPath: IndexPath) {
 		let beerID: Int = beers[indexPath.row].id
-		print("The BeerName of the clicked cell is: \(beers[indexPath.row].name) (in BeersCollectionPresenter)")
-		print("BeerID: \(beerID) (in BeersCollectionPresenter)")
+		/*print("The BeerName of the clicked cell is: \(beers[indexPath.row].name) (in BeersCollectionPresenter)")
+		print("BeerID: \(beerID) (in BeersCollectionPresenter)")*/
 		
 		wireframe?.navigate(to: beerID)
 	}
@@ -67,6 +66,6 @@ extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 	
 	
 	func fetchDidFail(error: String) {
-		print("Fetch failed with this error: ", error)
+		print("Fetch failed with this error (in BeersCollectionPresenter): ", error)
 	}
 }

@@ -15,7 +15,7 @@ class BeersCollectionWireframe: BeerCollectionWireframeContract {
 	
 	func navigate(to beerID: Int) {
 		DispatchQueue.main.async {
-			print("BeerID: \(beerID) (inside BeersCollectionWireframe)")
+			//print("BeerID: \(beerID) (inside BeersCollectionWireframe)")
 			let viewController = BeerDetailsViewControllerBuilder().build(beerID: beerID)
 						
 			if let navigationController = self.view?.navigationController {

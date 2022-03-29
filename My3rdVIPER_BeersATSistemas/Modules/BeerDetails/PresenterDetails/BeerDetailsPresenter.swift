@@ -23,12 +23,13 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	
 	func viewDidLoad() {
         interactor?.output = self
+		view?.startActivity()
 		buildDetailsViewModel()
 	}
 	
 	
-	func buildDetailsViewModel() /*-> BeerDetailsViewModel*/ {
-		print("beerID: \(String(describing: beerID)) (insideBeerDetailsPresenter)")
+	func buildDetailsViewModel() {
+		//print("beerID: \(String(describing: beerID)) (insideBeerDetailsPresenter)")
 		interactor?.fetchBeer(withID: beerID ?? 1)
 	}
 	
@@ -44,12 +45,13 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 	func didFetch(beer: [BeerModel]) {
 		self.beer = beer.first
-		print("Beer in didFetch (in BeerDetailsPresenter, InteractorOutputContract): \(String(describing: self.beer))")
+		//print("Beer in didFetch (in BeerDetailsPresenter, InteractorOutputContract): \(String(describing: self.beer))")
 		
 		let beerViewModel = self.beer!.toDetailsViewModel
-		print("BeerViewModel: \(String(describing: beerViewModel))")
+		//print("BeerViewModel: \(String(describing: beerViewModel))")
 		
-		view!.configure(with: beerViewModel)		
+		view!.configure(with: beerViewModel)
+		view?.stopAndHideActivity()
 	}
 	
 	

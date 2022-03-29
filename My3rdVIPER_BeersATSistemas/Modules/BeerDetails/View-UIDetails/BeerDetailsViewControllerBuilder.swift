@@ -11,22 +11,17 @@ import UIKit
 
 class BeerDetailsViewControllerBuilder {
 	func build(beerID: Int) -> UIViewController {
-		print("BeerID: \(beerID) (inside DetailsVCBuilder)")
+		//print("BeerID: \(beerID) (inside DetailsVCBuilder)")
         
 		let viewController = BeerDetailsViewController.createFromStoryboard()
 		let presenter = BeerDetailsPresenter(beerID: beerID)
 		let interactor = BeerDetailsInteractor()
 		
-        viewController.presenter = presenter//buildPresenter(beerID: beerID)
-        //viewController.configure()
+        viewController.presenter = presenter
+		
 		presenter.view = viewController
 		presenter.interactor = interactor
 		
 		return viewController
 	}
-	
-	
-//	private func buildPresenter(beerID: Int) -> BeerDetailsPresenterContract {
-//		return BeerDetailsPresenter(beerID: beerID)
-//	}
 }
