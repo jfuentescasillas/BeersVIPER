@@ -50,7 +50,7 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 		let beerViewModel = self.beer!.toDetailsViewModel
 		//print("BeerViewModel: \(String(describing: beerViewModel))")
 		
-		view!.configure(with: beerViewModel)
+		view?.configure(with: beerViewModel)
 		view?.stopAndHideActivity()
 	}
 	
