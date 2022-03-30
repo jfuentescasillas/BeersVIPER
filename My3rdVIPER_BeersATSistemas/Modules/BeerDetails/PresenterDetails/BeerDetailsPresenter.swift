@@ -47,7 +47,9 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 		self.beer = beer.first
 		//print("Beer in didFetch (in BeerDetailsPresenter, InteractorOutputContract): \(String(describing: self.beer))")
 		
-		let beerViewModel = self.beer!.toDetailsViewModel
+		guard let tempBeer = self.beer else { return }
+		
+		let beerViewModel = tempBeer.toDetailsViewModel
 		//print("BeerViewModel: \(String(describing: beerViewModel))")
 		
 		view?.configure(with: beerViewModel)
