@@ -14,6 +14,7 @@ class BeerDetailsViewControllerBuilder {
 		let viewController = BeerDetailsViewController.createFromStoryboard()
 		let presenter = BeerDetailsPresenter(beerID: beerID)
 		let interactor = BeerDetailsInteractor()
+		interactor.beerDetailsProvider = NetworkBeerDetailsProvider()
 		
         viewController.presenter = presenter
 		

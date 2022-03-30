@@ -14,6 +14,8 @@ class BeersCollectionViewControllerBuilder {
 		let viewController = BeersCollectionViewController.createFromStoryboard()
 		let presenter = BeersCollectionPresenter()
 		let interactor = BeersCollectionInteractor()
+		interactor.beersProvider = NetworkBeersCollectionProvider()
+		
 		let wireframe = BeersCollectionWireframe()
 		
 		viewController.presenter = presenter

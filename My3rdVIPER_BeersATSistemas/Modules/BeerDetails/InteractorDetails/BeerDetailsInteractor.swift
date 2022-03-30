@@ -12,9 +12,21 @@ import Foundation
 class BeerDetailsInteractor: BeerDetailsInteractorContract {
 	var output: BeerDetailsInteractorOutputContract?
 	var beer: [BeerModel]?
+	var beerDetailsProvider: BeerDetailsProviderContract?
 	
+		
 	func fetchBeer(withID: Int) {
-		let beerURLWithID = "https://api.punkapi.com/v2/beers/\(withID)"
+		beerDetailsProvider?.getBeerDetails(beerID: withID, { beerDetailsResult in
+			switch beerDetailsResult {
+			case .success(let beerDetails):
+				self.output?.didFetch(beer: beerDetails)
+				
+			case .failure:
+				self.output?.fetchDidFail(error: "Error Fetching the beer details")
+			}
+		})
+		// OLD CODE
+		/*let beerURLWithID = "https://api.punkapi.com/v2/beers/\(withID)"
 		//print("beerURLWithID: \(beerURLWithID)")
 		
 		guard let url = URL(string: beerURLWithID) else {
@@ -48,7 +60,7 @@ class BeerDetailsInteractor: BeerDetailsInteractorContract {
 			}
 		}
 		
-		task.resume()
+		task.resume()*/
 	}
 	
 	

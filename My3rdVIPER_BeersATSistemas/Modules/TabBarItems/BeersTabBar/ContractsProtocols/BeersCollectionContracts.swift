@@ -37,6 +37,7 @@ protocol BeerCollectionPresenterContract: AnyObject {
 // MARK: - Interactor Contract/Protocol
 protocol BeerCollectionInteractorContract: AnyObject {
 	var output: BeerCollectionInteractorOutputContract? { get set }
+	var beersProvider: BeersCollectionProviderContract? { get set }
 	
 	func fetchBeers(pageNumber: Int)
 }
@@ -46,6 +47,12 @@ protocol BeerCollectionInteractorContract: AnyObject {
 protocol BeerCollectionInteractorOutputContract: AnyObject {
 	func didFetch(beers: [BeerModel])
 	func fetchDidFail(error: String)
+}
+
+
+// MARK: - Provider Contract/Protocol
+protocol BeersCollectionProviderContract {
+	func getBeersCollection(pageNumber: Int, _ completion: @escaping(Result<[BeerModel], BeersCollectionProviderError>) -> ())
 }
 
 

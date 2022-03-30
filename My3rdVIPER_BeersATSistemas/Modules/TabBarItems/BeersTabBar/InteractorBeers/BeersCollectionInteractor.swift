@@ -12,12 +12,25 @@ import Foundation
 
 
 class BeersCollectionInteractor: BeerCollectionInteractorContract {
+	// MARK: - Properties
 	var output: BeerCollectionInteractorOutputContract?
+	var beersProvider: BeersCollectionProviderContract?
+	
 	var beers = [BeerModel]()
 	
 	
 	func fetchBeers(pageNumber: Int) {
-		let beerUrl: String = "https://api.punkapi.com/v2/beers?page=\(pageNumber)&per_page=80"
+		beersProvider?.getBeersCollection(pageNumber: pageNumber, { beersResult in
+			switch beersResult {
+			case .success(let beers):
+				self.output?.didFetch(beers: beers)
+				
+			case .failure:
+				self.output?.fetchDidFail(error: "Error Fetching the beers")
+			}
+		})
+		// OLD CODE
+		/*let beerUrl: String = "https://api.punkapi.com/v2/beers?page=\(pageNumber)&per_page=80"
 		guard let url = URL(string: beerUrl) else {
 			output?.fetchDidFail(error: "Error in Beer URL")
 			
@@ -52,6 +65,12 @@ class BeersCollectionInteractor: BeerCollectionInteractorContract {
 			}
 		}
 		
-		task.resume()
+		task.resume()*/
+	}
+	
+	
+	// MARK: - Deinit
+	deinit {
+		print("Deinit \(self)")
 	}
 }
