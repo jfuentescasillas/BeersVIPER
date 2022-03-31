@@ -4,6 +4,8 @@
 //
 //  Created by Jorge Fuentes Casillas on 30/03/22.
 //
+// Example of Beer Details using url with beerID: https://api.punkapi.com/v2/beers/13
+
 
 import Foundation
 

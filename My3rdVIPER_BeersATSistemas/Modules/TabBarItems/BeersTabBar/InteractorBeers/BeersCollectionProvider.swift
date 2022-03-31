@@ -4,8 +4,8 @@
 //
 //  Created by Jorge Fuentes Casillas on 30/03/22.
 //
-// Example of Beer Details using url with beerID: https://api.punkapi.com/v2/beers/13
-// Example of Beer Search using url with beerName and pagination: https://api.punkapi.com/v2/beers?beer_name=e?&page=3&per_page=80
+// Example of Standard url request with pagination: https://api.punkapi.com/v2/beers?page=1&per_page=80
+// Example of Search beer request with pagination: https://api.punkapi.com/v2/beers?beer_name=e?&page=3&per_page=80
 
 
 import Foundation

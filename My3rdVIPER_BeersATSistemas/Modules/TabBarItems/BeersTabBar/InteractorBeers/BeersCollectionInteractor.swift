@@ -4,8 +4,6 @@
 //
 //  Created by Jorge Fuentes Casillas on 17/03/22.
 //
-// Example of Standard url request with pagination: https://api.punkapi.com/v2/beers?page=1&per_page=80
-// Search beer request with pagination: https://api.punkapi.com/v2/beers?beer_name=dog?&page=1&per_page=80
 
 
 import Foundation
