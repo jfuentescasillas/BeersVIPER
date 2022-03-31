@@ -16,6 +16,7 @@ protocol BeersCollectionViewContract: UIViewController {
 	func reloadData()
 	func startActivity()
 	func stopAndHideActivity()
+	func searchBeerIsActive()
 }
 
 
@@ -31,6 +32,8 @@ protocol BeerCollectionPresenterContract: AnyObject {
 	func cellViewModel(at indexPath: IndexPath) -> BeerCollectionViewCellViewModel
 	func didSelectItem(at indexPath: IndexPath)
 	func fetchNextItems()
+	func fetchSearchedItems(searchedName: String)
+	func resetButtonPressed()
 }
 
 
@@ -40,6 +43,7 @@ protocol BeerCollectionInteractorContract: AnyObject {
 	var beersProvider: BeersCollectionProviderContract? { get set }
 	
 	func fetchBeers(pageNumber: Int)
+	func searchBeers(beerName: String, pageNumber: Int)
 }
 
 
@@ -53,6 +57,7 @@ protocol BeerCollectionInteractorOutputContract: AnyObject {
 // MARK: - Provider Contract/Protocol
 protocol BeersCollectionProviderContract {
 	func getBeersCollection(pageNumber: Int, _ completion: @escaping(Result<[BeerModel], BeersCollectionProviderError>) -> ())
+	func searchBeersCollection(beerName: String, pageNumber: Int, _ completion: @escaping(Result<[BeerModel], BeersCollectionProviderError>) -> ())
 }
 
 

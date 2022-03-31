@@ -33,6 +33,8 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	}
 		
 	// Elements of Storyboard
+	@IBOutlet weak var resetBeerSearchButtonItem: UIBarButtonItem!
+	@IBOutlet weak var beersSearchBar: UISearchBar!
 	@IBOutlet weak var beersCollectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
@@ -41,6 +43,8 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		setSearchBar()
+		registerNotifications()
 		presenter?.viewDidLoad()
     }
 	
@@ -81,6 +85,54 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 		
 		beersCollectionView.setCollectionViewLayout(cellLayout, animated: false)
 	}
+	
+	
+	// MARK: - SearchBar config
+	private func setSearchBar() {
+		resetBeerSearchButtonItem.isEnabled = false
+		beersSearchBar.delegate = self
+		beersSearchBar.placeholder = "Search for a beer..."
+	}
+	
+	
+	// MARK: - Keyboard related Methods
+	// Methods to Place Keyboard Under the CollectionView
+	func registerNotifications() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+	
+	
+	@objc func keyboardWillShow(notification: NSNotification) {
+		guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+		beersCollectionView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+	}
+	
+	
+	@objc func keyboardWillHide(notification: NSNotification) {
+		beersCollectionView.contentInset.bottom = 0
+	}
+	
+	
+	// Methods to Hide keyboard
+	private func hideKeyboardWhenTappedAround() {
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+		tap.cancelsTouchesInView = false
+		view.addGestureRecognizer(tap)
+	}
+	
+	
+	@objc func dismissKeyboard() {
+		view.endEditing(true)
+	}
+	
+		
+	// MARK: - Action Buttons
+	@IBAction func resetBeerSearchButtonAction(_ sender: Any) {
+		presenter?.resetButtonPressed()
+		beersSearchBar.text = ""
+		resetBeerSearchButtonItem.isEnabled = false
+	}
 }
 
 
@@ -112,12 +164,40 @@ extension BeersCollectionViewController: UICollectionViewDelegate {
 	
 	// MARK: - Pagination
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-		let offsetY 		= scrollView.contentOffset.y  // y coordinate (up and down)
+		let offsetY 		= scrollView.contentOffset.y     // y coordinate (up and down)
 		let contentHeight 	= scrollView.contentSize.height  // The entire scrollview, if there are 5,000 items, it will be very tall
-		let height 			= scrollView.frame.size.height  // Screen's height
+		let height 			= scrollView.frame.size.height   // Screen's height
 		
 		if (offsetY > (contentHeight - height)) {
 			presenter?.fetchNextItems()
 		}
+	}
+}
+
+
+// MARK: - Extension: UISearchBarDelegate
+extension BeersCollectionViewController: UISearchBarDelegate {
+	// MARK: UISearchBarDelegate Methods
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		beersSearchBar.text = ""
+		hideKeyboardWhenTappedAround()
+	}
+	
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		if searchBar.text == "" || searchBar.text == " " {
+			return
+		}
+		
+		guard let searchedBeer = searchBar.text else { return }
+		
+		presenter?.fetchSearchedItems(searchedName: searchedBeer)
+	}
+	
+	
+	// MARK: - Custom Methods related to the searchBar (not part of UISearchBarDelegate)
+	// Reset button is active when a search has been made
+	func searchBeerIsActive() {
+		resetBeerSearchButtonItem.isEnabled = true
 	}
 }

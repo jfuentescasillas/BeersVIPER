@@ -69,6 +69,19 @@ class BeersCollectionInteractor: BeerCollectionInteractorContract {
 	}
 	
 	
+	func searchBeers(beerName: String, pageNumber: Int) {
+		beersProvider?.searchBeersCollection(beerName: beerName, pageNumber: pageNumber, { searchResults in
+			switch searchResults {
+			case .success(let searchedBeers):
+				self.output?.didFetch(beers: searchedBeers)
+				
+			case .failure:
+				self.output?.fetchDidFail(error: "Error Fetching the searched beers")
+			}
+		})
+	}
+	
+	
 	// MARK: - Deinit
 	deinit {
 		print("Deinit \(self)")

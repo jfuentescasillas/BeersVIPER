@@ -4,6 +4,9 @@
 //
 //  Created by Jorge Fuentes Casillas on 30/03/22.
 //
+// Example of Beer Details using url with beerID: https://api.punkapi.com/v2/beers/13
+// Example of Beer Search using url with beerName and pagination: https://api.punkapi.com/v2/beers?beer_name=e?&page=3&per_page=80
+
 
 import Foundation
 
@@ -17,6 +20,7 @@ enum BeersCollectionProviderError: Error {
 class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 	func getBeersCollection(pageNumber: Int, _ completion: @escaping (Result<[BeerModel], BeersCollectionProviderError>) -> ()) {
 		let beerUrl: String = "https://api.punkapi.com/v2/beers?page=\(pageNumber)&per_page=80"
+		
 		guard let url = URL(string: beerUrl) else {
 			completion(.failure(.badUrl))
 			
@@ -40,7 +44,42 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 					//fatalError("File could not be parsed: \(String(describing: beerError?.localizedDescription))")
 				}
 			} else {
-				fatalError("Error in statuscode: \(beerResponse.statusCode)")
+				fatalError("Error in statuscode (getting Beers): \(beerResponse.statusCode)")
+			}
+		}
+		
+		task.resume()
+	}
+	
+	
+	func searchBeersCollection(beerName: String, pageNumber: Int, _ completion: @escaping (Result<[BeerModel], BeersCollectionProviderError>) -> ()) {
+		let beerUrl: String = "https://api.punkapi.com/v2/beers?beer_name=\(beerName)?&page=\(pageNumber)&per_page=80"
+		
+		guard let url = URL(string: beerUrl) else {
+			completion(.failure(.badUrl))
+			
+			return
+		}
+		
+		print("URL search: \(url)")
+		
+		let request = URLRequest(url: url)
+		let task = URLSession.shared.dataTask(with: request) { (searchedBeerData, searchedBeerResponse, searchedBeerError) in
+			guard let searchedBeerData = searchedBeerData, searchedBeerError == nil, let searchedBeerResponse = searchedBeerResponse as? HTTPURLResponse else {
+				fatalError("Error in connection: \(String(describing: searchedBeerError))")
+			}
+
+			// Conection is valid
+			if searchedBeerResponse.statusCode == 200 {
+				do {
+					let searchedBeersDecoder = try JSONDecoder().decode([BeerModel].self, from: searchedBeerData)
+					completion(.success(searchedBeersDecoder))
+				} catch let errorDecodingsearchedBeers {
+					completion(.failure(.generic(errorDecodingsearchedBeers)))
+					//fatalError("File could not be parsed: \(String(describing: beerError?.localizedDescription))")
+				}
+			} else {
+				fatalError("Error in statuscode (searching Beers): \(searchedBeerResponse.statusCode)")
 			}
 		}
 		

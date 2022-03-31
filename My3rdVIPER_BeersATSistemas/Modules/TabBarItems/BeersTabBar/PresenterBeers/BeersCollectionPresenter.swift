@@ -26,15 +26,19 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 			view?.reloadData()
 		}
 	}
-	private var pageNumber: Int  = 1  // This is needed for the pagination
-	var hasMoreBeers: Bool 		 = true
-	var isLoadingMoreBeers: Bool = false
+	private var pageNumber: Int  	 = 1   // This is needed for the pagination
+	private var searchedName: String = ""  // When the user searches for a beer's name, it will be stored in this variable
+	var hasMoreBeers: Bool 		 	 = true
+	var isLoadingMoreBeers: Bool 	 = false
+	var isSearchingBeers: Bool   	 = false
 	
 	
 	// MARK: - Methods related with the PresenterContract
 	func viewDidLoad() {
-		isLoadingMoreBeers = true
-		
+		hasMoreBeers 	   = true
+		isLoadingMoreBeers = false
+		isSearchingBeers   = false
+				
 		interactor?.output = self
 		interactor?.fetchBeers(pageNumber: pageNumber)
 		
@@ -63,11 +67,35 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 		
 		isLoadingMoreBeers = true
 		pageNumber += 1
-		/*print("PageNumber: \(pageNumber)")
-		print("isLoadingMoreBeers (it should be 'true'): \(isLoadingMoreBeers)")*/
 		
-		interactor?.fetchBeers(pageNumber: pageNumber)
+		if isSearchingBeers {
+			interactor?.searchBeers(beerName: searchedName, pageNumber: pageNumber)
+		} else {
+			interactor?.fetchBeers(pageNumber: pageNumber)
+		}
+		
 		view?.startActivity()
+	}
+	
+	
+	func fetchSearchedItems(searchedName: String) {
+		self.searchedName  = searchedName
+		isLoadingMoreBeers = false
+		hasMoreBeers 	   = true
+		isSearchingBeers   = true
+		beers 			   = []  // Empty the current array of beers
+		pageNumber 		   = 1  // Each time a beer search is done, the page number must be reset to 1
+		
+		view?.searchBeerIsActive()  // The "reset" button is activated in the view
+		interactor?.searchBeers(beerName: searchedName, pageNumber: pageNumber)
+	}
+	
+	
+	// Reset all the values and a new fetch of beers is done.
+	func resetButtonPressed() {
+		beers = []
+		pageNumber = 1
+		viewDidLoad()
 	}
 	
 	
@@ -82,18 +110,13 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 	// The presenter receives the data from the Interactor. The methods below are called from the Interactor
 	func didFetch(beers: [BeerModel]) {
-		//print("beers.count (insideDidFecth): \(beers.count)")
-		
+		// If the fetched items is lower than the maximum value (in this case 80), then it deactivates the pagination by setting "hasMoreBeers" to false
 		if beers.count < 80 {
 			hasMoreBeers = false
 		}
 		
 		self.beers += beers
-		/*print("Self.beers: \(self.beers)")
-		print("Self.beers.count: \(self.beers.count)")*/
-		
 		isLoadingMoreBeers = false
-		//print("isLoadingMoreBeers (it should be 'false'): \(isLoadingMoreBeers)")
 		
 		view?.stopAndHideActivity()
 	}
