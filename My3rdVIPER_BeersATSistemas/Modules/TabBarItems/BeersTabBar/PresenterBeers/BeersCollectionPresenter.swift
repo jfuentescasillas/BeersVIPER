@@ -12,7 +12,7 @@ import Foundation
 class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	// MARK: - Properties
 	// MARK: Properties related with the PresenterContract
-	var view: BeersCollectionViewContract?
+	weak var view: BeersCollectionViewContract?
 	var interactor: BeerCollectionInteractorContract?
 	var wireframe: BeerCollectionWireframeContract?
 	
