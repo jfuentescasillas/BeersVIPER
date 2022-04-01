@@ -17,6 +17,7 @@ protocol BeersCollectionViewContract: UIViewController {
 	func startActivity()
 	func stopAndHideActivity()
 	func searchBeerIsActive()
+	func showEmptyResultsLabel()
 }
 
 

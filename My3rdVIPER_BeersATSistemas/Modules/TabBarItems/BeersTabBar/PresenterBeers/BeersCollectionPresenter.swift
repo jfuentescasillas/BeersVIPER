@@ -88,6 +88,8 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 		
 		view?.searchBeerIsActive()  // The "reset" button is activated in the view
 		interactor?.searchBeers(beerName: searchedName, pageNumber: pageNumber)
+		
+		view?.startActivity()
 	}
 	
 	
@@ -113,6 +115,12 @@ extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 		// If the fetched items is lower than the maximum value (in this case 80), then it deactivates the pagination by setting "hasMoreBeers" to false
 		if beers.count < 80 {
 			hasMoreBeers = false
+		}
+		
+		if beers.count == 0 {
+			view?.showEmptyResultsLabel()
+			
+			return
 		}
 		
 		self.beers += beers

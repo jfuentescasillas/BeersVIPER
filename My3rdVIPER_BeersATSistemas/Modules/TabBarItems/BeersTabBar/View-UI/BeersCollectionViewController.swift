@@ -37,12 +37,15 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	@IBOutlet weak var beersSearchBar: UISearchBar!
 	@IBOutlet weak var beersCollectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var emptyResultsLabel: UILabel!
 	
 		
 	// MARK: - Life cycle
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		emptyResultsLabel.isHidden = true
+		
 		setSearchBar()
 		registerNotifications()
 		presenter?.viewDidLoad()
@@ -74,6 +77,8 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 			self.beersCollectionView.isHidden = false
 			// layoutIfNeeded() is needed in order to see the elements of the collection view in the last cell, otherwise, when the pagination is done, the collection view shows the requested items from the beginning (array's 1st item), and not from the array's last item (which is what is wanted)
 			self.beersCollectionView.layoutIfNeeded()
+			
+			self.emptyResultsLabel.isHidden = true
 		}
 	}
 	
@@ -124,6 +129,20 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	
 	@objc func dismissKeyboard() {
 		view.endEditing(true)
+	}
+	
+	
+	// MARK: - Show Empty Search Results label
+	func showEmptyResultsLabel() {
+		DispatchQueue.main.async {
+			self.activityIndicator.stopAnimating()
+			self.activityIndicator.hidesWhenStopped = true
+			
+			self.beersCollectionView.isHidden = true
+			
+			self.emptyResultsLabel.isHidden   = false
+			self.emptyResultsLabel.text = "There were no results for the beer you requested. Please try with another name."
+		}
 	}
 	
 		

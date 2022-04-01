@@ -61,7 +61,7 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 			return
 		}
 		
-		print("URL search: \(url)")
+		//print("URL search: \(url)")
 		
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { (searchedBeerData, searchedBeerResponse, searchedBeerError) in
@@ -69,7 +69,7 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 				fatalError("Error in connection: \(String(describing: searchedBeerError))")
 			}
 
-			// Conection is valid
+			// Connection is valid
 			if searchedBeerResponse.statusCode == 200 {
 				do {
 					let searchedBeersDecoder = try JSONDecoder().decode([BeerModel].self, from: searchedBeerData)

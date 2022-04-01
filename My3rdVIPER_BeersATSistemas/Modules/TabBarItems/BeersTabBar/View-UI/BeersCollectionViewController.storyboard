@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pgj-on-sTt">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="BeersCollectionViewController" id="Y6W-OH-hqX" customClass="BeersCollectionViewController" customModule="My3rdVIPER_BeersATSistemas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KV3-Vx-ELx">
-                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="139" width="390" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ANi-IR-oRd">
                                     <size key="itemSize" width="411" height="184"/>
@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BeerCollectionViewCell" id="XEY-hL-VGK" customClass="BeerCollectionViewCell" customModule="My3rdVIPER_BeersATSistemas" customModuleProvider="target">
-                                        <rect key="frame" x="1.5" y="0.0" width="411" height="184"/>
+                                        <rect key="frame" x="-10.666666666666666" y="0.0" width="411" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="af8-Ju-Hjm">
                                             <rect key="frame" x="0.0" y="0.0" width="411" height="184"/>
@@ -97,28 +97,38 @@
                                 </connections>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KIH-Uo-HVg">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="frame" x="176.66666666666666" y="403.66666666666669" width="37" height="37"/>
                                 <color key="color" systemColor="systemBlueColor"/>
                             </activityIndicatorView>
                             <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDh-Z7-4c7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There were no results for the beer you requested" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-fy-QS6">
+                                <rect key="frame" x="16" y="401.66666666666669" width="358" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9Ga-fy-QS6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="07s-lj-oz3"/>
                             <constraint firstItem="TDh-Z7-4c7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2dn-g6-eyk"/>
                             <constraint firstItem="TDh-Z7-4c7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6zF-jo-Az5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Ga-fy-QS6" secondAttribute="trailing" constant="16" id="7IA-zg-CKp"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="OKj-aC-ec1"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Qk3-VA-W9g"/>
                             <constraint firstItem="KIH-Uo-HVg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Sc6-0V-aeq"/>
                             <constraint firstItem="TDh-Z7-4c7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Z4d-pm-syA"/>
                             <constraint firstItem="KIH-Uo-HVg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="bGp-5g-U9W"/>
+                            <constraint firstItem="9Ga-fy-QS6" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="lBz-P5-rOi"/>
+                            <constraint firstItem="9Ga-fy-QS6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="uZZ-Ek-Nrg"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="xo3-ZS-C2I"/>
                             <constraint firstItem="KV3-Vx-ELx" firstAttribute="top" secondItem="TDh-Z7-4c7" secondAttribute="bottom" id="z78-4c-4K9"/>
                         </constraints>
@@ -136,6 +146,7 @@
                         <outlet property="activityIndicator" destination="KIH-Uo-HVg" id="0uS-rW-3ey"/>
                         <outlet property="beersCollectionView" destination="KV3-Vx-ELx" id="6qc-JF-67P"/>
                         <outlet property="beersSearchBar" destination="TDh-Z7-4c7" id="ZxG-OZ-IHX"/>
+                        <outlet property="emptyResultsLabel" destination="9Ga-fy-QS6" id="8lM-5o-GKv"/>
                         <outlet property="resetBeerSearchButtonItem" destination="Gpr-9Q-TcN" id="iUF-SB-vdO"/>
                     </connections>
                 </viewController>
@@ -149,7 +160,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pgj-on-sTt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lEI-lq-Oq7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
