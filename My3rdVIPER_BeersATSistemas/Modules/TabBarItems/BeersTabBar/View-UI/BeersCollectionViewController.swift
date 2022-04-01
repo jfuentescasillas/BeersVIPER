@@ -10,7 +10,7 @@ import UIKit
 
 
 class BeersCollectionViewController: UIViewController, BeersCollectionViewContract {
-	// MARK: Properties
+	// MARK: - Properties
 	var presenter: BeerCollectionPresenterContract?
 	
 	private var cellLayout: UICollectionViewFlowLayout {

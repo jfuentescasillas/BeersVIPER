@@ -11,20 +11,20 @@ import UIKit
 
 class BeersCollectionViewControllerBuilder {
 	func build() -> UIViewController {
-		let viewController = BeersCollectionViewController.createFromStoryboard()
-		let presenter = BeersCollectionPresenter()
-		let interactor = BeersCollectionInteractor()
+		let viewController 		 = BeersCollectionViewController.createFromStoryboard()
+		let presenter 			 = BeersCollectionPresenter()
+		let interactor 			 = BeersCollectionInteractor()
 		interactor.beersProvider = NetworkBeersCollectionProvider()
 		
-		let wireframe = BeersCollectionWireframe()
+		let wireframe 			 = BeersCollectionWireframe()
 		
 		viewController.presenter = presenter
 		
-		presenter.view = viewController
-		presenter.interactor = interactor
-		presenter.wireframe = wireframe
+		presenter.view 			 = viewController
+		presenter.interactor 	 = interactor
+		presenter.wireframe 	 = wireframe
         
-		wireframe.view = viewController
+		wireframe.view 			 = viewController
 		
 		return viewController
 	}

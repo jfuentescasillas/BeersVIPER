@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112E518D27F74635009C4B16 /* FavoriteBeersContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E518C27F74635009C4B16 /* FavoriteBeersContracts.swift */; };
+		112E519027F74895009C4B16 /* FavoriteBeersTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E518F27F74895009C4B16 /* FavoriteBeersTablePresenter.swift */; };
 		115D973627E494D80012D71C /* BeerDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115D973527E494D80012D71C /* BeerDetailsPresenter.swift */; };
 		115D973827E4959D0012D71C /* BeerDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115D973727E4959D0012D71C /* BeerDetailsInteractor.swift */; };
 		1160FE9427E0B19500580722 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160FE9327E0B19500580722 /* UIViewControllerExt.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		112E518C27F74635009C4B16 /* FavoriteBeersContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBeersContracts.swift; sourceTree = "<group>"; };
+		112E518F27F74895009C4B16 /* FavoriteBeersTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBeersTablePresenter.swift; sourceTree = "<group>"; };
 		115D973527E494D80012D71C /* BeerDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsPresenter.swift; sourceTree = "<group>"; };
 		115D973727E4959D0012D71C /* BeerDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsInteractor.swift; sourceTree = "<group>"; };
 		1160FE9327E0B19500580722 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
@@ -81,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112E518B27F745B8009C4B16 /* ContractsProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				112E518C27F74635009C4B16 /* FavoriteBeersContracts.swift */,
+			);
+			path = ContractsProtocols;
+			sourceTree = "<group>";
+		};
+		112E518E27F74866009C4B16 /* PresenterFavorites */ = {
+			isa = PBXGroup;
+			children = (
+				112E518F27F74895009C4B16 /* FavoriteBeersTablePresenter.swift */,
+			);
+			path = PresenterFavorites;
+			sourceTree = "<group>";
+		};
 		1160FE9227E0B17500580722 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,9 +182,9 @@
 		11C28E8427F720F3002C626A /* View-UI_Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				11C28E8927F726C9002C626A /* FavoriteBeersViewControllerBuilder.swift */,
 				11C28E8527F72122002C626A /* FavoriteBeersViewController.swift */,
 				11C28E8727F7267C002C626A /* FavoriteBeersViewController.storyboard */,
-				11C28E8927F726C9002C626A /* FavoriteBeersViewControllerBuilder.swift */,
 			);
 			path = "View-UI_Favorites";
 			sourceTree = "<group>";
@@ -223,6 +243,7 @@
 			children = (
 				11E1D67627DFB4120083841D /* BeersTabBar */,
 				11E1D67727DFB41D0083841D /* FavoriteBeersTabBar */,
+				112E518E27F74866009C4B16 /* PresenterFavorites */,
 			);
 			path = TabBarItems;
 			sourceTree = "<group>";
@@ -242,6 +263,7 @@
 		11E1D67727DFB41D0083841D /* FavoriteBeersTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				112E518B27F745B8009C4B16 /* ContractsProtocols */,
 				11C28E8427F720F3002C626A /* View-UI_Favorites */,
 			);
 			path = FavoriteBeersTabBar;
@@ -351,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1198EC0027E38B1E001BC70B /* UIImageViewExt.swift in Sources */,
+				112E518D27F74635009C4B16 /* FavoriteBeersContracts.swift in Sources */,
 				1198EC0427E38FD8001BC70B /* BeerDetailsViewControllerBuilder.swift in Sources */,
 				11E1D65E27DFB0910083841D /* AppDelegate.swift in Sources */,
 				11ADBB7127F44CEA00E3BB02 /* BeersCollectionProvider.swift in Sources */,
@@ -362,6 +385,7 @@
 				1160FE9B27E0FE0B00580722 /* BeerCollectionViewCell.swift in Sources */,
 				115D973827E4959D0012D71C /* BeerDetailsInteractor.swift in Sources */,
 				1171A01927F6E784007C31CC /* StringExt.swift in Sources */,
+				112E519027F74895009C4B16 /* FavoriteBeersTablePresenter.swift in Sources */,
 				1160FE9427E0B19500580722 /* UIViewControllerExt.swift in Sources */,
 				11E1D67E27DFB8EE0083841D /* BeersCollectionContracts.swift in Sources */,
 				11E1D68227DFBB980083841D /* BeersCollectionViewController.swift in Sources */,
