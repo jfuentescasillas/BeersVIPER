@@ -189,9 +189,18 @@ extension BeersCollectionViewController: UISearchBarDelegate {
 			return
 		}
 		
-		guard let searchedBeer = searchBar.text else { return }
+		// Use of guard var instead of guard let since its value will later change
+		guard var searchedBeer = searchBar.text else { return }
 		
-		presenter?.fetchSearchedItems(searchedName: searchedBeer)
+		// The search can only contain numbers and/or digits, otherwise it fails.
+		if searchedBeer.isAlphanumeric {
+			// If the query has white spaces, it is replaced by %20, (which is the hexadecimal value for the white space used in an encoded URL)
+			// Example: if the query is "alpha dog", it will be changed to "alpha%20dog", which is a valid encoded URL address for the API
+			searchedBeer = searchedBeer.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+			presenter?.fetchSearchedItems(searchedName: searchedBeer)
+		} else {
+			showMessageAlert(title: "Invalid Text Input", message: "Your search can only contain numbers/digits and/or spaces, please try again with a valid format.")
+		}
 	}
 	
 	

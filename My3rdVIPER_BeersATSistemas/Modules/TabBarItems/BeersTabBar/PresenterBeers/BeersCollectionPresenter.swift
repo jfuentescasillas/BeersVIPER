@@ -20,7 +20,7 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 		return beers.count
 	}
 	
-	// MARK: - Private Class Properties
+	// MARK: Private Class Properties
 	private var beers = [BeerModel]() {
 		didSet {
 			view?.reloadData()

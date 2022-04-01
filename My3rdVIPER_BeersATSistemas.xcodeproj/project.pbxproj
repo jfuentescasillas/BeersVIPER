@@ -14,6 +14,7 @@
 		1160FE9927E0FA2500580722 /* BeersCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160FE9827E0FA2500580722 /* BeersCollectionPresenter.swift */; };
 		1160FE9B27E0FE0B00580722 /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160FE9A27E0FE0B00580722 /* BeerCollectionViewCell.swift */; };
 		116C024F27E250510064458D /* BeersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C024E27E250510064458D /* BeersModel.swift */; };
+		1171A01927F6E784007C31CC /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171A01827F6E784007C31CC /* StringExt.swift */; };
 		1198EBF727E34328001BC70B /* BeersCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1198EBF627E34328001BC70B /* BeersCollectionInteractor.swift */; };
 		1198EBFE27E38AEC001BC70B /* BeerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1198EBFD27E38AEC001BC70B /* BeerDetailsViewController.swift */; };
 		1198EC0027E38B1E001BC70B /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1198EBFF27E38B1E001BC70B /* UIImageViewExt.swift */; };
@@ -41,6 +42,7 @@
 		1160FE9827E0FA2500580722 /* BeersCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersCollectionPresenter.swift; sourceTree = "<group>"; };
 		1160FE9A27E0FE0B00580722 /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		116C024E27E250510064458D /* BeersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersModel.swift; sourceTree = "<group>"; };
+		1171A01827F6E784007C31CC /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		1198EBF627E34328001BC70B /* BeersCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersCollectionInteractor.swift; sourceTree = "<group>"; };
 		1198EBFD27E38AEC001BC70B /* BeerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsViewController.swift; sourceTree = "<group>"; };
 		1198EBFF27E38B1E001BC70B /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				1160FE9327E0B19500580722 /* UIViewControllerExt.swift */,
 				1198EBFF27E38B1E001BC70B /* UIImageViewExt.swift */,
+				1171A01827F6E784007C31CC /* StringExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				11ADBB7327F45F8300E3BB02 /* BeerDetailsProvider.swift in Sources */,
 				1160FE9B27E0FE0B00580722 /* BeerCollectionViewCell.swift in Sources */,
 				115D973827E4959D0012D71C /* BeerDetailsInteractor.swift in Sources */,
+				1171A01927F6E784007C31CC /* StringExt.swift in Sources */,
 				1160FE9427E0B19500580722 /* UIViewControllerExt.swift in Sources */,
 				11E1D67E27DFB8EE0083841D /* BeersCollectionContracts.swift in Sources */,
 				11E1D68227DFBB980083841D /* BeersCollectionViewController.swift in Sources */,
