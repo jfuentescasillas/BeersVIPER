@@ -34,6 +34,15 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	}
 	
 	
+	func saveBeerButtonPressed(viewModel: BeerDetailsViewModel) {
+		print("Beer Saved in favorites list (saveBeerButtonPressed in BeerDetailsPresenter)")
+		print("Favorite BeerName from ViewModel: \(viewModel.beerDetailsName)")
+		print("Favorite BeerDescription from ViewModel: \(viewModel.beerDetailsDescription!)")
+		print("Favorite BeerFoodPairing from ViewModel: \(viewModel.beerDetailsFoodPairing!)")
+		print("-------------------")
+	}
+	
+	
 	// MARK: - Deinit
 	deinit {
 		print("Deinit \(self)")

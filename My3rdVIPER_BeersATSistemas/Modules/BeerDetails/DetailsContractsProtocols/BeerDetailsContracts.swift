@@ -27,6 +27,7 @@ protocol BeerDetailsPresenterContract: AnyObject {
 	
 	func viewDidLoad()
 	func buildDetailsViewModel()
+	func saveBeerButtonPressed(viewModel: BeerDetailsViewModel)
 }
 
 

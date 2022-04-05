@@ -34,6 +34,8 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	// MARK: - Properties related to the ViewContract
 	var presenter: BeerDetailsPresenterContract?
 	
+	private var detailsToSaveInFavoriteViewModel: BeerDetailsViewModel?
+	
 	// MARK: - Elements in Storyboard
 	@IBOutlet weak var saveInFavoritesButtonOutlet: UIBarButtonItem!
 	
@@ -69,6 +71,7 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	func configure(with beerDetailsViewModel: BeerDetailsViewModel?) {
 		guard let detailsViewModel = beerDetailsViewModel else { return }
 		
+		detailsToSaveInFavoriteViewModel = detailsViewModel
 		/*print("----------------")
 		print("DetailsViewModel (inside BeerDetailsViewController, at configure(with...): \n \(detailsViewModel) ")*/
 		
@@ -127,7 +130,9 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	
 	// MARK: - Action Buttons
 	@IBAction func saveInFavoritesActionButton(_ sender: Any) {
-		print("Save Beer in favorites list!")
+		guard let detailsToSaveInFavoriteViewModel = detailsToSaveInFavoriteViewModel else { return }
+
+		presenter?.saveBeerButtonPressed(viewModel: detailsToSaveInFavoriteViewModel)
 	}
 	
 		

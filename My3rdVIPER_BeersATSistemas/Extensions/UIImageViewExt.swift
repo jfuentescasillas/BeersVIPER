@@ -41,7 +41,7 @@ extension UIImageView {
 				}
 								
 				self?.image = image // Loading image for the 1st time
-				imageCache.setObject(imageToCache, forKey: "\(url)" as NSString) // Image is stored in cache and this will help to prevent the "reuse" of cells, which will help to avoid to show an incorrect image for a determined hero.
+				imageCache.setObject(imageToCache, forKey: "\(url)" as NSString) // Image is stored in cache and this will help to prevent the "reuse" of cells, which will help to avoid to show an incorrect image for a determined item.
 			}
 		}
 		
@@ -49,9 +49,9 @@ extension UIImageView {
 	}
 	
 	
-	func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+	/*func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
 		guard let url = URL(string: link) else { return }
 		
 		downloaded(from: url, contentMode: mode)
-	}
+	}*/
 }
