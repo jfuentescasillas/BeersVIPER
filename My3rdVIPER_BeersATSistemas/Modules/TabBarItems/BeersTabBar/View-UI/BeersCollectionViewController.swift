@@ -48,6 +48,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 		
 		setSearchBar()
 		registerNotifications()
+		hideKeyboardWhenTappedAround()
 		presenter?.viewDidLoad()
     }
 	
@@ -110,6 +111,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	
 	@objc func keyboardWillShow(notification: NSNotification) {
 		guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+		
 		beersCollectionView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
 	}
 	
@@ -119,7 +121,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	}
 	
 	
-	// Methods to Hide keyboard
+	// Methods to Hide keyboard when the user taps in the screen
 	private func hideKeyboardWhenTappedAround() {
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
 		tap.cancelsTouchesInView = false
@@ -199,11 +201,16 @@ extension BeersCollectionViewController: UISearchBarDelegate {
 	// MARK: UISearchBarDelegate Methods
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		beersSearchBar.text = ""
-		hideKeyboardWhenTappedAround()
+				
+		// This lines help to hide the keyboard once the cancel button was clicked
+		DispatchQueue.main.async {
+			searchBar.resignFirstResponder()
+		}
 	}
 	
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		// Can't make searches if the text is empty or if it has only one blank space
 		if searchBar.text == "" || searchBar.text == " " {
 			return
 		}
@@ -219,6 +226,11 @@ extension BeersCollectionViewController: UISearchBarDelegate {
 			presenter?.fetchSearchedItems(searchedName: searchedBeer)
 		} else {
 			showMessageAlert(title: "Invalid Text Input", message: "Your search can only contain numbers/digits and/or spaces, please try again with a valid format.")
+		}
+		
+		// This lines help to hide the keyboard once the search was requested
+		DispatchQueue.main.async {
+			searchBar.resignFirstResponder()
 		}
 	}
 	

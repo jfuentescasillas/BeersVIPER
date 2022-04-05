@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteBeer" representedClassName=".FavoriteBeer" syncable="YES" codeGenerationType="class">
+        <attribute name="favBeerABV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerAttenuationLvl" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerBrewersTips" optional="YES" attributeType="String"/>
+        <attribute name="favBeerContributedBy" optional="YES" attributeType="String"/>
+        <attribute name="favBeerDescription" optional="YES" attributeType="String"/>
+        <attribute name="favBeerEBC" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerFirstBrewed" optional="YES" attributeType="String"/>
+        <attribute name="favBeerFoodPairing" optional="YES" attributeType="String"/>
+        <attribute name="favBeerIBU" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="favBeerImage" attributeType="Binary"/>
+        <attribute name="favBeerName" attributeType="String"/>
+        <attribute name="favBeerOG" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerPH" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerSRM" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="favBeerTagline" optional="YES" attributeType="String"/>
+        <attribute name="favBeerTargetFG" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="FavoriteBeer" positionX="-63" positionY="-18" width="128" height="284"/>
+    </elements>
+</model>

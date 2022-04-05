@@ -35,6 +35,8 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	var presenter: BeerDetailsPresenterContract?
 	
 	// MARK: - Elements in Storyboard
+	@IBOutlet weak var saveInFavoritesButtonOutlet: UIBarButtonItem!
+	
 	@IBOutlet weak var beerImageDetailsImg: UIImageView!
 	@IBOutlet weak var beerDescriptionDetailsLbl: UILabel!
 	@IBOutlet weak var firstBrewDetailsLbl: UILabel!
@@ -123,6 +125,12 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	}
 	
 	
+	// MARK: - Action Buttons
+	@IBAction func saveInFavoritesActionButton(_ sender: Any) {
+		print("Save Beer in favorites list!")
+	}
+	
+		
 	// MARK: - Deinit
 	deinit {
 		print("Deinit \(self)")
