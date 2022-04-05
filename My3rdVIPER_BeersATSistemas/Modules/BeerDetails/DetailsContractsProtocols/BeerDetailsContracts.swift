@@ -16,6 +16,8 @@ protocol BeerDetailsViewContract: UIViewController {
 	func configure(with beerDetailsViewModel: BeerDetailsViewModel?)
 	func startActivity()
 	func stopAndHideActivity()
+	func showBeerSavedSuccessfullyMsg()
+	func showBeerCannotBeSavedMsg()
 }
 
 

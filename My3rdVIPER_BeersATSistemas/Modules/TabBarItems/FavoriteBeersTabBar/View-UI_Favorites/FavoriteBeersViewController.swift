@@ -18,10 +18,11 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	
 
 	// MARK: - Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		presenter?.viewDidLoad()
+	}
 }
 
 
@@ -32,6 +33,7 @@ extension FavoriteBeersViewController: UISearchBarDelegate {
 		
 		if !searchedFavBeerName.isEmpty {
 			print("Favorite Beer searched: \(searchedFavBeerName)")
+			
 		} else {
 			print("Please insert a text to find a FAVORITE BEER")
 		}

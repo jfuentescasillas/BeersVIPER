@@ -128,6 +128,17 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	}
 	
 	
+	// MARK: - Show Messages of Beers Saved (or not) in the data base
+	func showBeerSavedSuccessfullyMsg() {
+		showMessageAlert(title: "Excellent!", message: "The beer was successfully saved in your list of Favorite Beers!")
+	}
+	
+	
+	func showBeerCannotBeSavedMsg() {
+		showMessageAlert(title: "Oops!", message: "This beer is already in your list of Favorite Beers! Therefore, it will not be saved again in the list.")
+	}
+	
+	
 	// MARK: - Action Buttons
 	@IBAction func saveInFavoritesActionButton(_ sender: Any) {
 		guard let detailsToSaveInFavoriteViewModel = detailsToSaveInFavoriteViewModel else { return }
