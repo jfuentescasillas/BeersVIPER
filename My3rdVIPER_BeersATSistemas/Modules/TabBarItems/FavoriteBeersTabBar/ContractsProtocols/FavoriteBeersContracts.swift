@@ -13,8 +13,8 @@ import UIKit
 protocol FavoriteBeersTableViewContract: UIViewController {
 	var presenter: FavoriteBeersTablePresenterContract? { get set }
 		
-	/*func reloadData()
-	func startActivity()
+	func reloadData()
+	/*func startActivity()
 	func stopAndHideActivity()
 	func searchBeerIsActive()
 	func showEmptyResultsLabel()*/
@@ -24,8 +24,12 @@ protocol FavoriteBeersTableViewContract: UIViewController {
 // MARK: - Presenter Contract/Protocol
 protocol FavoriteBeersTablePresenterContract: AnyObject {
 	var view: FavoriteBeersTableViewContract? { get set }
+	var numOfFavBeers: Int { get }
 	
 	func viewDidLoad()  // This one tells the Presenter that all is ready to work
+	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer
+	
+	func deleteFavBeer(at indexPath: IndexPath)
 	/*var interactor: BeerCollectionInteractorContract? { get set }
 	var wireframe: BeerCollectionWireframeContract? { get set }
 	 

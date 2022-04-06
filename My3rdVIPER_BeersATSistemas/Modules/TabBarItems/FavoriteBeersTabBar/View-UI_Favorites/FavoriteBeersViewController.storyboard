@@ -16,6 +16,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search your favorite beer..." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-DV-To0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="OZA-Ed-6mc"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w70-Wk-w1S">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteBeerCell" rowHeight="180" id="s7f-Rz-Cfg" customClass="FavoriteBeersTableViewCell" customModule="My3rdVIPER_BeersATSistemas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s7f-Rz-Cfg" id="c8B-qj-DMK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Beer Name Favorite Beer Name Favorite Beer Name " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-UH-yz2">
+                                                    <rect key="frame" x="127.5" y="13" width="264.5" height="45"/>
+                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="k0U-fu-FCc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Description Beer Description Beer Description Beer Description Beer Description " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOe-lD-Alz">
+                                                    <rect key="frame" x="127.5" y="60" width="264.5" height="107"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beerPlaceholder-60x60" translatesAutoresizingMaskIntoConstraints="NO" id="YGK-lC-z0c">
+                                                    <rect key="frame" x="20" y="11" width="105.5" height="158"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="YGK-lC-z0c" secondAttribute="height" multiplier="1:1.5" id="ejd-pn-Llx"/>
+                                                        <constraint firstAttribute="height" constant="158" id="rZE-2S-kn3"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IOe-lD-Alz" secondAttribute="trailing" constant="2" id="4Ju-Tq-yXJ"/>
+                                                <constraint firstItem="YGK-lC-z0c" firstAttribute="centerY" secondItem="c8B-qj-DMK" secondAttribute="centerY" id="8ws-9Y-zC4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IOe-lD-Alz" secondAttribute="bottom" constant="2" id="ACa-WU-Wb3"/>
+                                                <constraint firstItem="CcJ-UH-yz2" firstAttribute="leading" secondItem="YGK-lC-z0c" secondAttribute="trailing" constant="2" id="EU1-Z4-pFo"/>
+                                                <constraint firstItem="IOe-lD-Alz" firstAttribute="leading" secondItem="YGK-lC-z0c" secondAttribute="trailing" constant="2" id="FBT-tn-JRa"/>
+                                                <constraint firstItem="CcJ-UH-yz2" firstAttribute="top" secondItem="c8B-qj-DMK" secondAttribute="topMargin" constant="2" id="Xud-h0-aqq"/>
+                                                <constraint firstItem="IOe-lD-Alz" firstAttribute="top" secondItem="CcJ-UH-yz2" secondAttribute="bottom" constant="2" id="ZGl-wW-4fN"/>
+                                                <constraint firstItem="YGK-lC-z0c" firstAttribute="centerY" secondItem="c8B-qj-DMK" secondAttribute="centerY" id="dE1-X9-Jms"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CcJ-UH-yz2" secondAttribute="trailing" constant="2" id="lbS-I3-lqF"/>
+                                                <constraint firstItem="YGK-lC-z0c" firstAttribute="leading" secondItem="c8B-qj-DMK" secondAttribute="leadingMargin" id="vd7-3v-Y5I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <connections>
+                                            <outlet property="favBeerDescriptionLbl" destination="IOe-lD-Alz" id="ADE-ei-ERp"/>
+                                            <outlet property="favBeerImageView" destination="YGK-lC-z0c" id="Mh5-nc-R3O"/>
+                                            <outlet property="favBeerNameLbl" destination="CcJ-UH-yz2" id="5fa-M3-gbc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="v9L-6y-csL"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Vh8-8x-tN1"/>
+                                </connections>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRE-4l-W13">
                                 <rect key="frame" x="16" y="323" width="382" height="250"/>
                                 <constraints>
@@ -26,22 +94,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" placeholder="Search your favorite beer..." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-DV-To0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="OZA-Ed-6mc"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="JRE-4l-W13" secondAttribute="trailing" constant="16" id="3H0-ri-BxY"/>
                             <constraint firstItem="JRE-4l-W13" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="AOx-fL-nTr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w70-Wk-w1S" secondAttribute="trailing" id="Igj-hQ-Tm4"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ncj-uY-5wZ"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VNQ-ND-hFh"/>
+                            <constraint firstItem="w70-Wk-w1S" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="djw-VO-gu0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w70-Wk-w1S" secondAttribute="bottom" id="euy-CF-myS"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ig2-Cl-pLG"/>
+                            <constraint firstItem="w70-Wk-w1S" firstAttribute="top" secondItem="pkz-DV-To0" secondAttribute="bottom" id="s5q-5W-JAV"/>
                             <constraint firstItem="JRE-4l-W13" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="teP-oJ-cS2"/>
                             <constraint firstItem="JRE-4l-W13" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="yKi-r1-0B0"/>
                         </constraints>
@@ -49,6 +114,7 @@
                     <navigationItem key="navigationItem" id="5bT-Jb-4Ni"/>
                     <connections>
                         <outlet property="emptyFavoriteLabel" destination="JRE-4l-W13" id="cPY-ry-84e"/>
+                        <outlet property="favBeersTableView" destination="w70-Wk-w1S" id="1eb-VP-Jhs"/>
                         <outlet property="searchFavoriteBeer" destination="pkz-DV-To0" id="um6-iw-fzC"/>
                     </connections>
                 </viewController>
@@ -76,8 +142,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="beerPlaceholder-60x60" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

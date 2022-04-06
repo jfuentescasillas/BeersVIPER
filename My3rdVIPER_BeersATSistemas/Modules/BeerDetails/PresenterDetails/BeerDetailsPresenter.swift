@@ -16,7 +16,8 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	var interactor: BeerDetailsInteractorContract?
 	var beerID: Int?
 	var beer: BeerModel?
-	
+		
+	var favBeerImg: Data?
 	
 	init(beerID: Int) {
 		self.beerID = beerID
@@ -37,14 +38,13 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	
 	
 	func saveBeerButtonPressed(viewModel: BeerDetailsViewModel) {
-		/*print("Beer Saved in favorites list (saveBeerButtonPressed in BeerDetailsPresenter)")
-		 print("Favorite BeerName from ViewModel: \(viewModel.beerDetailsName)")
-		 print("Favorite BeerDescription from ViewModel: \(viewModel.beerDetailsDescription!)")
-		 print("Favorite BeerFoodPairing from ViewModel: \(viewModel.beerDetailsFoodPairing!)")
-		 print("-------------------")*/
-		
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
+		
+		// MARK: -------------------Get Image to save (Start)-------------------
+		
+		//  -------------------Get Image to save (End)-------------------
+				
 		
 		// Check if wanted beer is already in the favorite list
 		let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteBeer")
@@ -87,28 +87,6 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 		} catch {
 			print("Error requesting the list of favorite beers")
 		}
-		/*
-		// Save new Favorite Beer
-		let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
-		favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
-		favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
-		favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")*/
-		
-		/*do {
-			// Checking if beer is already in favorites, if the numberOfRecords is NOT zero, then it means that the Beer is already in the list of favorites and it won't be saved again in the list
-			let numberOfRecords = try context.count(for: request)
-			
-			if numberOfRecords == 0 {
-				try context.save()
-				print("Beer Successfully saved in favorites!")
-			} else {
-				print("Beer Already in favorites! Beer will not be saved")
-				
-				return
-			}
-		} catch {
-			print("There was an error saving the Beer in Favorites List")
-		}*/
 		
 		print("-------------------")
 		print("The saved context: \(context)")

@@ -81,6 +81,7 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 			guard let beerURL = detailsViewModel.beerDetailsimageURL else { return }
 			
 			self.beerImageDetailsImg.downloaded(from: beerURL)
+			
 			self.beerDescriptionDetailsLbl.text = detailsViewModel.beerDetailsDescription
 			self.firstBrewDetailsLbl.text 		= detailsViewModel.beerDetails1stBrewed
 			self.abvDetailsLbl.text 			= "\(String(describing: detailsViewModel.beerDetailsAbv ?? 4.5))"
