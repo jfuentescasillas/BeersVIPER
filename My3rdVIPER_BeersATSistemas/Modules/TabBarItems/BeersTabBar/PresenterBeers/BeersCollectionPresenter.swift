@@ -131,6 +131,10 @@ extension BeersCollectionPresenter: BeerCollectionInteractorOutputContract {
 	
 	
 	func fetchDidFail(error: String) {
-		print("Fetch failed with this error (in BeersCollectionPresenter): ", error)
+		//print("Fetch failed with this error (in BeersCollectionPresenter): ", error)
+		DispatchQueue.main.async {
+			self.view?.showMessageAlert(title: "No Internet Connection", message: "It seems that your device has no internet connection, please try again later")
+			self.view?.showNoInternetConnectionLabel()
+		}
 	}
 }

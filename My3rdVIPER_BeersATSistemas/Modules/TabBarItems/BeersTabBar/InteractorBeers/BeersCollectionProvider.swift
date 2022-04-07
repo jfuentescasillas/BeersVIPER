@@ -32,6 +32,8 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 		let task = URLSession.shared.dataTask(with: request) { (beerData, beerResponse, beerError) in
 			guard let beerData = beerData, beerError == nil, let beerResponse = beerResponse as? HTTPURLResponse else {
 				print("Error in connection: \(String(describing: beerError))")
+
+				completion(.failure(.generic(beerError)))
 				
 				return
 			}
@@ -68,7 +70,9 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { (searchedBeerData, searchedBeerResponse, searchedBeerError) in
 			guard let searchedBeerData = searchedBeerData, searchedBeerError == nil, let searchedBeerResponse = searchedBeerResponse as? HTTPURLResponse else {
-				fatalError("Error in connection: \(String(describing: searchedBeerError))")
+				completion(.failure(.generic(searchedBeerError)))
+				
+				return
 			}
 			
 			// Connection is valid

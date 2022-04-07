@@ -57,12 +57,15 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 		
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-		
+	@IBOutlet weak var noInternetLabel: UILabel!
+	
 	
 	// MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		scrollView.isHidden = false
+		noInternetLabel.isHidden = true
 		presenter?.viewDidLoad()		
     }
 	
@@ -125,6 +128,16 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 			self.activityIndicator.stopAnimating()
 			self.activityIndicator.hidesWhenStopped = true
 			self.scrollView.isHidden = false
+		}
+	}
+	
+	
+	func showNoInternetConnectionLabel() {
+		func showNoInternetConnectionLabel() {
+			self.stopAndHideActivity()
+			
+			self.noInternetLabel.isHidden   = false
+			self.noInternetLabel.text = "No internet connection. Please Try again later."
 		}
 	}
 	

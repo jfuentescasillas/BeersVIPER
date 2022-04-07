@@ -87,8 +87,6 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 					DispatchQueue.main.async {
 						self.view?.showBeerSavedSuccessfullyMsg()
 					}
-					
-					//print("-------------------")
 				}
 				
 				task.resume()
@@ -109,9 +107,6 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 		} catch {
 			print("Error requesting the list of favorite beers (Inside BeerDetailsPresenter")
 		}
-		
-		/*print("-------------------")
-		print("The saved context: \(context)")*/
 	}
 	
 	
@@ -139,6 +134,9 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 	
 	
 	func fetchDidFail(error: String) {
-		print("Error Fetching BeerID: \(error)")
+		DispatchQueue.main.async {
+			self.view?.showMessageAlert(title: "No Internet Connection", message: "It seems that your device has no internet connection, please try again later")
+			self.view?.showNoInternetConnectionLabel()
+		}
 	}
 }

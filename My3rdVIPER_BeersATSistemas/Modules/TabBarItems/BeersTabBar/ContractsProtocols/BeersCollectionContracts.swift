@@ -18,6 +18,7 @@ protocol BeersCollectionViewContract: UIViewController {
 	func stopAndHideActivity()
 	func searchBeerIsActive()
 	func showEmptyResultsLabel()
+	func showNoInternetConnectionLabel() 
 }
 
 

@@ -16,11 +16,10 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	var numOfFavBeers: Int {
 		return favBeers.count
 	}
-	
-	// Core Data
+		
+	// Core Data Properties
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	lazy var context = appDelegate.persistentContainer.viewContext
-	
 	
 	// MARK: Private Properties of the class
 	private var favBeers = [FavoriteBeer]() {
@@ -28,24 +27,25 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 			view?.reloadData()
 		}
 	}
+	private var isSearching: Bool = false
 	
 	
 	// MARK: - Methods related to the PresenterContract
 	func viewDidLoad() {
+		view?.startActivity()
 		loadFavBeersData()
 	}
 	
 	
 	// MARK: - Create, Read, Update and Delete (CRUD) Data in CoreData
 	// MARK: Load Data
-	private func loadFavBeersData() {
-		let request: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest() //NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteBeer")
-		request.returnsObjectsAsFaults = true
+	private func loadFavBeersData(withRequest: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest()) {
+		withRequest.returnsObjectsAsFaults = true
 	
 		do {
-			let results = try context.fetch(request)
+			let results = try context.fetch(withRequest)
 						
-			if results.count > 0 {
+			if results.count > 0  {
 				// Assign the results found in favBeersArray
 				favBeers = results
 				
@@ -64,12 +64,16 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 					print("---------------(inside requestFavoriteBeers() at FavoriteBeersTablePresenter class)")
 					
 				}*/
+			} else if isSearching {
+				view?.showMessageAlert(title: "No Beers Found!", message: "Your favorite list of beers does not have any beer with the requested query, please try again with another name.")
 			} else {
-				print("No favorite beers in the list (inside requestFavoriteBeers() at FavoriteBeersTablePresenter class)")
+				print("Initial status with an empty list.")
 			}
 		} catch {
 			print("Error requesting the list of favorite beers")
 		}
+		
+		view?.stopAndHideActivity()
 	}
 	
 	
@@ -83,16 +87,23 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 		} catch {
 			print("Error Deleting the Beer From Favorites")
 		}
-		
-		/*print("FavBeers: \(favBeers) (after deleting one beer)")
-		print("---------------")*/
 	}
 	
 	
 	// MARK: Search Data
 	func searchFavoriteBeer(withQuery: String) {
-		print("Favorite Beer searched: \(withQuery) (inside FavoriteBeersTablePresenter)")
+		isSearching = true
+		let searchRequest: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest()
+		searchRequest.predicate = NSPredicate(format: "favBeerName CONTAINS[cd] %@", withQuery)
+		
+		loadFavBeersData(withRequest: searchRequest)
 	}
+	
+	
+	func resetOrCancelButtonPressed() {
+		isSearching = false
+	}
+	
 	
 	// MARK: - Cell View Model
 	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer {		

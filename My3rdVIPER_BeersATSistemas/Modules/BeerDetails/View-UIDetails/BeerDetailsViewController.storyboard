@@ -347,13 +347,26 @@
                                 <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                                 <color key="color" systemColor="systemBlueColor"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="noInternetLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZY-Hk-MNA">
+                                <rect key="frame" x="16" y="234" width="288" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2qO-ba-fBb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pqF-7C-e8E" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="9xw-TR-NCX"/>
+                            <constraint firstItem="BZY-Hk-MNA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DbH-Vw-gtB"/>
                             <constraint firstAttribute="bottom" secondItem="pqF-7C-e8E" secondAttribute="bottom" priority="250" constant="34" id="Eog-vS-yeV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BZY-Hk-MNA" secondAttribute="trailing" constant="16" id="NFs-4T-2Fh"/>
                             <constraint firstItem="w9u-D4-hFi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="T8K-Vv-0gF"/>
+                            <constraint firstItem="BZY-Hk-MNA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="fNX-dd-OQe"/>
+                            <constraint firstItem="BZY-Hk-MNA" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="qOP-SE-I7K"/>
                             <constraint firstItem="pqF-7C-e8E" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qj9-9X-bph"/>
                             <constraint firstItem="pqF-7C-e8E" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xWw-9B-BOS"/>
                             <constraint firstItem="w9u-D4-hFi" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="xvV-Nl-IVS"/>
@@ -380,6 +393,7 @@
                         <outlet property="firstBrewDetailsLbl" destination="urK-Lh-C9t" id="vGP-fb-iRo"/>
                         <outlet property="foodPairingDetailsLbl" destination="vD2-Sk-JKl" id="YbK-rc-wOd"/>
                         <outlet property="ibuDetailsLbl" destination="UDg-Y0-rYC" id="hLB-Nx-l72"/>
+                        <outlet property="noInternetLabel" destination="BZY-Hk-MNA" id="gfh-BI-YyM"/>
                         <outlet property="originalGravityDetailsLbl" destination="2B7-4K-aga" id="h1D-zg-v10"/>
                         <outlet property="phDetailsLbl" destination="Izc-15-4jK" id="G1d-Ar-A7g"/>
                         <outlet property="saveInFavoritesButtonOutlet" destination="icb-Au-Txz" id="UuZ-t7-dhT"/>

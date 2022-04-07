@@ -84,6 +84,15 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	}
 	
 	
+	func showNoInternetConnectionLabel() {
+		self.activityIndicator.stopAnimating()
+		self.activityIndicator.hidesWhenStopped = true
+		
+		self.emptyResultsLabel.isHidden   = false
+		self.emptyResultsLabel.text = "No internet connection. Please Try again later."
+	}
+	
+	
 	// MARK: - LayoutSubviews
 	// Writes the layout subviews programmed after didLoad
 	override func viewDidLayoutSubviews() {

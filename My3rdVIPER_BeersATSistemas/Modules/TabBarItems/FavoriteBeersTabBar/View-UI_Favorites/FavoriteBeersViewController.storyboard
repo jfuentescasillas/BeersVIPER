@@ -95,6 +95,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2z6-XM-bge">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemRedColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,19 +107,29 @@
                             <constraint firstItem="JRE-4l-W13" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="AOx-fL-nTr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w70-Wk-w1S" secondAttribute="trailing" id="Igj-hQ-Tm4"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ncj-uY-5wZ"/>
+                            <constraint firstItem="2z6-XM-bge" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Rk6-t9-gZL"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VNQ-ND-hFh"/>
                             <constraint firstItem="w70-Wk-w1S" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="djw-VO-gu0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w70-Wk-w1S" secondAttribute="bottom" id="euy-CF-myS"/>
+                            <constraint firstItem="2z6-XM-bge" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gTx-Kg-rLX"/>
                             <constraint firstItem="pkz-DV-To0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ig2-Cl-pLG"/>
                             <constraint firstItem="w70-Wk-w1S" firstAttribute="top" secondItem="pkz-DV-To0" secondAttribute="bottom" id="s5q-5W-JAV"/>
                             <constraint firstItem="JRE-4l-W13" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="teP-oJ-cS2"/>
                             <constraint firstItem="JRE-4l-W13" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="yKi-r1-0B0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5bT-Jb-4Ni"/>
+                    <navigationItem key="navigationItem" id="5bT-Jb-4Ni">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="zYg-n1-mD0">
+                            <connections>
+                                <action selector="resetButtonPressed:" destination="Y6W-OH-hqX" id="MxH-Md-4qG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="2z6-XM-bge" id="bPq-AW-6WC"/>
                         <outlet property="emptyFavoriteLabel" destination="JRE-4l-W13" id="cPY-ry-84e"/>
                         <outlet property="favBeersTableView" destination="w70-Wk-w1S" id="1eb-VP-Jhs"/>
+                        <outlet property="resetSearchOutlet" destination="zYg-n1-mD0" id="thL-2I-Qxi"/>
                         <outlet property="searchFavoriteBeer" destination="pkz-DV-To0" id="um6-iw-fzC"/>
                     </connections>
                 </viewController>
@@ -152,6 +166,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

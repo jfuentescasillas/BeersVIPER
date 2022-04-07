@@ -14,9 +14,9 @@ protocol FavoriteBeersTableViewContract: UIViewController {
 	var presenter: FavoriteBeersTablePresenterContract? { get set }
 		
 	func reloadData()
-	/*func startActivity()
+	func startActivity()
 	func stopAndHideActivity()
-	func searchBeerIsActive()
+	/*func searchBeerIsActive()
 	func showEmptyResultsLabel()*/
 }
 
@@ -27,10 +27,11 @@ protocol FavoriteBeersTablePresenterContract: AnyObject {
 	var numOfFavBeers: Int { get }
 	
 	func viewDidLoad()  // This one tells the Presenter that all is ready to work
-	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer
-	
+	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer	
 	func deleteFavBeer(at indexPath: IndexPath)
 	func searchFavoriteBeer(withQuery: String)
+	func resetOrCancelButtonPressed()
+	
 	/*var interactor: BeerCollectionInteractorContract? { get set }
 	var wireframe: BeerCollectionWireframeContract? { get set }
 	 

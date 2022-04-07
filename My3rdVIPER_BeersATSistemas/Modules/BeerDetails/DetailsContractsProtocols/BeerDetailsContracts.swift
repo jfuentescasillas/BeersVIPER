@@ -18,6 +18,7 @@ protocol BeerDetailsViewContract: UIViewController {
 	func stopAndHideActivity()
 	func showBeerSavedSuccessfullyMsg()
 	func showBeerCannotBeSavedMsg()
+	func showNoInternetConnectionLabel()
 }
 
 

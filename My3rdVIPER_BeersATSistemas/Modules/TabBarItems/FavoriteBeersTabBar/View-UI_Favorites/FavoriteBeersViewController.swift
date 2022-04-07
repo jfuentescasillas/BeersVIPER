@@ -11,17 +11,34 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	// MARK: - Properties
 	var presenter: FavoriteBeersTablePresenterContract?
 	
-	
 	// MARK: - Elements in Storyboard
+	@IBOutlet weak var resetSearchOutlet: UIBarButtonItem!
 	@IBOutlet weak var searchFavoriteBeer: UISearchBar!
 	@IBOutlet weak var favBeersTableView: UITableView!
 	@IBOutlet weak var emptyFavoriteLabel: UILabel!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 
 	// MARK: - Methods related to the PresenterContract
 	func reloadData() {
 		DispatchQueue.main.async {
 			self.favBeersTableView.reloadData()
+		}
+	}
+	
+	
+	// Activity Indicator Controllers
+	func startActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.startAnimating()
+		}
+	}
+	
+	
+	func stopAndHideActivity() {
+		DispatchQueue.main.async {
+			self.activityIndicator.stopAnimating()
+			self.activityIndicator.hidesWhenStopped = true
 		}
 	}
 	
@@ -37,6 +54,8 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	
 	// MARK: - Private Methods of this class
 	private func initialValues() {
+		registerNotifications()
+		
 		if presenter?.numOfFavBeers == 0 {
 			DispatchQueue.main.async {
 				self.favBeersTableView.isHidden = true
@@ -48,6 +67,43 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 				self.emptyFavoriteLabel.isHidden = true
 			}
 		}
+		
+		resetSearchOutlet.isEnabled = false
+	}
+	
+	
+	// MARK: - Action Buttons
+	@IBAction func resetButtonPressed(_ sender: Any) {
+		resetDefaultFavoriteBeers()
+	}
+	
+	
+	private func resetDefaultFavoriteBeers() {
+		searchFavoriteBeer.text = ""
+		resetSearchOutlet.isEnabled = false
+		
+		presenter?.viewDidLoad()
+		presenter?.resetOrCancelButtonPressed()
+	}
+	
+	
+	// MARK: - Keyboard related Methods
+	// Methods to Place Keyboard Under the CollectionView
+	func registerNotifications() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+	
+	
+	@objc func keyboardWillShow(notification: NSNotification) {
+		guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+		
+		favBeersTableView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+	}
+	
+	
+	@objc func keyboardWillHide(notification: NSNotification) {
+		favBeersTableView.contentInset.bottom = 0
 	}
 	
 	
@@ -61,9 +117,11 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 // MARK: - Extension: SearchBarDelegate
 extension FavoriteBeersViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		resetSearchOutlet.isEnabled = true
+		
 		guard let searchedFavBeerName = searchBar.text else { return }
 		
-		if !searchedFavBeerName.isEmpty {			
+		if !searchedFavBeerName.isEmpty {
 			presenter?.searchFavoriteBeer(withQuery: searchedFavBeerName)
 		} else {
 			showMessageAlert(title: "Invalid Query", message: "Your search must not be empty. Please insert a valid value in order to search a beer in your list of favorites.")
@@ -76,8 +134,9 @@ extension FavoriteBeersViewController: UISearchBarDelegate {
 	
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-		searchFavoriteBeer.text = ""
-				
+		resetDefaultFavoriteBeers()
+		presenter?.resetOrCancelButtonPressed()
+		
 		// This lines help to hide the keyboard once the cancel button was clicked
 		DispatchQueue.main.async {
 			searchBar.resignFirstResponder()
@@ -118,17 +177,7 @@ extension FavoriteBeersViewController: UITableViewDelegate {
 			favBeersTableView.deleteRows(at: [indexPath], with: .fade)
 			
 			presenter?.deleteFavBeer(at: indexPath)
-			
-			/*viewModel.deleteFavBeer(beerId: Int(filteredFavoriteBeers[indexPath.row].uid))
-			filteredFavoriteBeers.remove(at: indexPath.row)*/
-
-			// We must update the "favoriteBeers" array, since we have deleted elements in the filtered list, if we don't update the favorite list, it would show deleted beers when we perform another search
-			//favoriteBeers = viewModel.getFavoriteBeers()
-			
 			favBeersTableView.endUpdates()
 		}
-		
-		// Also update the "filteredFavoriteBeers" array
-		//filteredFavoriteBeers = favoriteBeers
 	}
 }
