@@ -90,15 +90,18 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 				
 				task.resume()
 			} else {
-				for _ in results as! [NSManagedObject] {  // In case it is needed, replace _ with result and uncomment the lines below to check the values
-					/*print("BEER ALREADY IN FAVORITES!!!!")
+				// In case it is needed, uncomment the lines below to check the values
+				/*for result in results as! [NSManagedObject] {
+					print("BEER ALREADY IN FAVORITES!!!!")
 					print("results.count: \(results.count) (should be more than 0), hence this beer CAN NOT be saved in the list of favorites since it's duplicated")
 					print("The fav beerID in result is: \(result.value(forKey: "favBeerID") as! Int16)")
 					print("The fav beerName in result is: \(result.value(forKey: "favBeerName") as? String ?? "Beer without Name")")
 					print("The fav beerDescription in result is: \(result.value(forKey: "favBeerDescription") as? String ?? "No Description Available")")
-					print("-------------------")*/
-					view?.showBeerCannotBeSavedMsg()
-				}
+					print("-------------------")
+				}*/
+				
+				// Beer already exists in the Database and message is displayed
+				view?.showBeerCannotBeSavedMsg()
 			}
 		} catch {
 			print("Error requesting the list of favorite beers (Inside BeerDetailsPresenter")
