@@ -63,17 +63,20 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 						return
 					}
 					
-					guard let imgData = imgData else { return }
-					
-					self.favBeerImg = imgData
-					
-					// Save new Favorite Beer
+					// Save new Favorite Beer details (usually string and numeric values)
 					let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
 					favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
 					favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
 					favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
+					
+					// Saving the image, which is Data. If some error occurs in the beerImage, the default placeholder will be shown in the cell along with all the data previously saved in favBeer.setValue(...)
+					guard let imgData = imgData else { return }
+					
+					self.favBeerImg = imgData
+					
 					favBeer.setValue(self.favBeerImg, forKey: "favBeerImage")
 					
+					// Save everything
 					do {
 						try context.save()
 					} catch {
