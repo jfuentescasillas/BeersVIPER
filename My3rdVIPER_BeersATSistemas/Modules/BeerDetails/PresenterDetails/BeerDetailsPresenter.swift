@@ -42,7 +42,8 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 		let context = appDelegate.persistentContainer.viewContext
 		
 		// MARK: -------------------Get Image to save (Start)-------------------
-		
+		guard let imgURL = viewModel.beerDetailsimageURL else { return }
+				
 		//  -------------------Get Image to save (End)-------------------
 				
 		
@@ -59,16 +60,50 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 			if results.count == 0 {
 				print("results.count: \(results.count) (should be 0), therefore: this beer can be saved in the list of favorites since it is not duplicated")
 				
-				// Save new Favorite Beer
-				let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
-				favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
-				favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
-				favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
+				let task = URLSession.shared.dataTask(with: imgURL) { imgData, imgResponse, imgError in
+					if imgError != nil {
+						print("Error downloading the Beer Image")
+						return
+					}
+					
+					guard let imgData = imgData else { return }
+					
+					self.favBeerImg = imgData
+					
+					// Save new Favorite Beer
+					let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
+					favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
+					favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
+					favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
+					favBeer.setValue(self.favBeerImg, forKey: "favBeerImage")
+					
+					do {
+						try context.save()
+					} catch {
+						print("Error trying to save values inside the URLSession")
+					}
+					
+					print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
+					DispatchQueue.main.async {
+						self.view?.showBeerSavedSuccessfullyMsg()
+					}
+					
+					print("-------------------")
+				}
 				
-				try context.save()
-				print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
-				view?.showBeerSavedSuccessfullyMsg()
-				print("-------------------")
+				task.resume()
+				
+				// Save new Favorite Beer
+				//let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
+//				favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
+//				favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
+//				favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
+//				favBeer.setValue(favBeerImg, forKey: "favBeerImage")
+
+//				try context.save()
+//				print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
+//				view?.showBeerSavedSuccessfullyMsg()
+//				print("-------------------")
 			} else {
 				for result in results as! [NSManagedObject] {
 					//guard let savedFavBeerID = result.value(forKey: "favBeerID") as? Int16 else { return }

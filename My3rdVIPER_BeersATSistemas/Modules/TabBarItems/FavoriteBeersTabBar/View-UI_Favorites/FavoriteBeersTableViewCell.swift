@@ -31,6 +31,7 @@ class FavoriteBeersTableViewCell: UITableViewCell {
 		favBeerNameLbl.text = viewModel.favBeerName
 		favBeerDescriptionLbl.text = viewModel.favBeerDescription
 		
-		
+		guard let favBeerImg = viewModel.favBeerImage else { return }
+		favBeerImageView.image = UIImage(data: favBeerImg)
 	}
 }

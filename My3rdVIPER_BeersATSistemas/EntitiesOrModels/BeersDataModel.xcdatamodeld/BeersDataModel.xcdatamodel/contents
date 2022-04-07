@@ -3,7 +3,7 @@
     <entity name="FavoriteBeer" representedClassName=".FavoriteBeer" syncable="YES" codeGenerationType="class">
         <attribute name="favBeerDescription" optional="YES" attributeType="String"/>
         <attribute name="favBeerID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="favBeerImage" optional="YES" attributeType="Binary"/>
+        <attribute name="favBeerImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="favBeerName" attributeType="String"/>
     </entity>
     <elements>

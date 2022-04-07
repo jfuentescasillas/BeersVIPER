@@ -31,9 +31,11 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { (beerData, beerResponse, beerError) in
 			guard let beerData = beerData, beerError == nil, let beerResponse = beerResponse as? HTTPURLResponse else {
-				fatalError("Error in connection: \(String(describing: beerError))")
+				print("Error in connection: \(String(describing: beerError))")
+				
+				return
 			}
-
+			
 			// Conection is valid
 			if beerResponse.statusCode == 200 {
 				do {
@@ -68,7 +70,7 @@ class NetworkBeersCollectionProvider: BeersCollectionProviderContract {
 			guard let searchedBeerData = searchedBeerData, searchedBeerError == nil, let searchedBeerResponse = searchedBeerResponse as? HTTPURLResponse else {
 				fatalError("Error in connection: \(String(describing: searchedBeerError))")
 			}
-
+			
 			// Connection is valid
 			if searchedBeerResponse.statusCode == 200 {
 				do {
