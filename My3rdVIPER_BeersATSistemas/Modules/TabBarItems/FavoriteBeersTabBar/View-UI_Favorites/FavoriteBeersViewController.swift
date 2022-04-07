@@ -63,13 +63,22 @@ extension FavoriteBeersViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchedFavBeerName = searchBar.text else { return }
 		
-		if !searchedFavBeerName.isEmpty {
-			print("Favorite Beer searched: \(searchedFavBeerName)")
-			
+		if !searchedFavBeerName.isEmpty {			
+			presenter?.searchFavoriteBeer(withQuery: searchedFavBeerName)
 		} else {
-			print("Please insert a text to find a FAVORITE BEER")
+			showMessageAlert(title: "Invalid Query", message: "Your search must not be empty. Please insert a valid value in order to search a beer in your list of favorites.")
 		}
 		
+		DispatchQueue.main.async {
+			searchBar.resignFirstResponder()
+		}
+	}
+	
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		searchFavoriteBeer.text = ""
+				
+		// This lines help to hide the keyboard once the cancel button was clicked
 		DispatchQueue.main.async {
 			searchBar.resignFirstResponder()
 		}

@@ -30,6 +30,7 @@ protocol FavoriteBeersTablePresenterContract: AnyObject {
 	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer
 	
 	func deleteFavBeer(at indexPath: IndexPath)
+	func searchFavoriteBeer(withQuery: String)
 	/*var interactor: BeerCollectionInteractorContract? { get set }
 	var wireframe: BeerCollectionWireframeContract? { get set }
 	 

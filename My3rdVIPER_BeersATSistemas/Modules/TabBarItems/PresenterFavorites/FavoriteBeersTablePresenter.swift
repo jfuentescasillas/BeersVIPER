@@ -36,7 +36,8 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	}
 	
 	
-	// Load Data
+	// MARK: - Create, Read, Update and Delete (CRUD) Data in CoreData
+	// MARK: Load Data
 	private func loadFavBeersData() {
 		let request: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest() //NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteBeer")
 		request.returnsObjectsAsFaults = true
@@ -72,7 +73,7 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	}
 	
 	
-	// MARK: - Delete Data
+	// MARK: Delete Data
 	func deleteFavBeer(at indexPath: IndexPath) {
 		context.delete(favBeers[indexPath.row])  // This line goes first...
 		favBeers.remove(at: indexPath.row)  //...Then this line goes next.
@@ -83,10 +84,15 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 			print("Error Deleting the Beer From Favorites")
 		}
 		
-		print("FavBeers: \(favBeers) (after deleting one beer)")
-		print("---------------")
+		/*print("FavBeers: \(favBeers) (after deleting one beer)")
+		print("---------------")*/
 	}
 	
+	
+	// MARK: Search Data
+	func searchFavoriteBeer(withQuery: String) {
+		print("Favorite Beer searched: \(withQuery) (inside FavoriteBeersTablePresenter)")
+	}
 	
 	// MARK: - Cell View Model
 	func cellViewModel(at indexPath: IndexPath) -> FavoriteBeer {		

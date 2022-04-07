@@ -41,11 +41,7 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
 		
-		// MARK: -------------------Get Image to save (Start)-------------------
 		guard let imgURL = viewModel.beerDetailsimageURL else { return }
-				
-		//  -------------------Get Image to save (End)-------------------
-				
 		
 		// Check if wanted beer is already in the favorite list
 		let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteBeer")
@@ -58,11 +54,12 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 			
 			// If the result is 0, then the beer is NOT YET in the favorite list and can be saved in it
 			if results.count == 0 {
-				print("results.count: \(results.count) (should be 0), therefore: this beer can be saved in the list of favorites since it is not duplicated")
+				//print("results.count: \(results.count) (should be 0), therefore: this beer can be saved in the list of favorites since it is not duplicated")
 				
 				let task = URLSession.shared.dataTask(with: imgURL) { imgData, imgResponse, imgError in
 					if imgError != nil {
 						print("Error downloading the Beer Image")
+						
 						return
 					}
 					
@@ -83,48 +80,32 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 						print("Error trying to save values inside the URLSession")
 					}
 					
-					print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
+					//print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
 					DispatchQueue.main.async {
 						self.view?.showBeerSavedSuccessfullyMsg()
 					}
 					
-					print("-------------------")
+					//print("-------------------")
 				}
 				
 				task.resume()
-				
-				// Save new Favorite Beer
-				//let favBeer = NSEntityDescription.insertNewObject(forEntityName: "FavoriteBeer", into: context)
-//				favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
-//				favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
-//				favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
-//				favBeer.setValue(favBeerImg, forKey: "favBeerImage")
-
-//				try context.save()
-//				print("Beer \(viewModel.beerDetailsName) Successfully saved in favorites!")
-//				view?.showBeerSavedSuccessfullyMsg()
-//				print("-------------------")
 			} else {
-				for result in results as! [NSManagedObject] {
-					//guard let savedFavBeerID = result.value(forKey: "favBeerID") as? Int16 else { return }
-					//guard let savedFavBeerName = result.value(forKey: "favBeerName") as? String else { return }
-					//guard let savedFavBeerDescription = result.value(forKey: "favBeerDescription") as? String else { return }
-					
-					print("BEER ALREADY IN FAVORITES!!!!")
+				for _ in results as! [NSManagedObject] {  // In case it is needed, replace _ with result and uncomment the lines below to check the values
+					/*print("BEER ALREADY IN FAVORITES!!!!")
 					print("results.count: \(results.count) (should be more than 0), hence this beer CAN NOT be saved in the list of favorites since it's duplicated")
 					print("The fav beerID in result is: \(result.value(forKey: "favBeerID") as! Int16)")
 					print("The fav beerName in result is: \(result.value(forKey: "favBeerName") as? String ?? "Beer without Name")")
 					print("The fav beerDescription in result is: \(result.value(forKey: "favBeerDescription") as? String ?? "No Description Available")")
-					print("-------------------")
+					print("-------------------")*/
 					view?.showBeerCannotBeSavedMsg()
 				}
 			}
 		} catch {
-			print("Error requesting the list of favorite beers")
+			print("Error requesting the list of favorite beers (Inside BeerDetailsPresenter")
 		}
 		
-		print("-------------------")
-		print("The saved context: \(context)")
+		/*print("-------------------")
+		print("The saved context: \(context)")*/
 	}
 	
 	
