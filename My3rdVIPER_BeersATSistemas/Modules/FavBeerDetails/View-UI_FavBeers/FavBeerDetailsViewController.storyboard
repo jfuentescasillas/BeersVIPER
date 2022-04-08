@@ -257,7 +257,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                 <constraints>
                                                     <constraint firstItem="UVZ-hy-Bs0" firstAttribute="leading" secondItem="E3C-lm-NyI" secondAttribute="leading" constant="4" id="0ag-lD-8Y0"/>
                                                     <constraint firstItem="i2Y-Y0-7gB" firstAttribute="leading" secondItem="3KO-9k-2tR" secondAttribute="trailing" constant="4" id="3af-bt-5lp"/>
@@ -322,6 +322,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="E3C-lm-NyI" secondAttribute="trailing" id="3FJ-jV-S0h"/>
                                             <constraint firstItem="dAC-1W-dmo" firstAttribute="leading" secondItem="yO9-lm-NxA" secondAttribute="leading" id="FJ5-yx-Ps7"/>
@@ -333,6 +334,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstItem="yO9-lm-NxA" firstAttribute="bottom" secondItem="ewQ-TY-NyN" secondAttribute="bottom" id="C5Y-cq-jRC"/>
                                     <constraint firstItem="yO9-lm-NxA" firstAttribute="top" secondItem="ewQ-TY-NyN" secondAttribute="top" id="MGn-VM-bk4"/>
@@ -345,7 +347,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="mjN-bg-7bo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tjx-Ln-jVw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mjN-bg-7bo" secondAttribute="trailing" id="ULy-Hr-srD"/>
@@ -397,8 +399,8 @@
     </scenes>
     <resources>
         <image name="beerPlaceholder-60x60" width="60" height="60"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
