@@ -24,9 +24,9 @@ class InitialViewControllerBuilder {
 	/// Build Beers Collection View Controller
 	private func buildBeersCollection() -> UINavigationController {
 		let viewController = BeersCollectionViewControllerBuilder().build()
-		viewController.title = "Beers List"
+		viewController.title = "beersNavItemTitle".localized
 		
-		let tabBarItem = UITabBarItem(title: "Beers", image: UIImage(named: "beerNavBarImage-29x29"), tag: 0)
+		let tabBarItem = UITabBarItem(title: "beersTabBarItem".localized, image: UIImage(named: "beerNavBarImage-29x29"), tag: 0)
 		
 		return buildNavigation(with: viewController, tabBarItem: tabBarItem)
 	}
@@ -35,9 +35,9 @@ class InitialViewControllerBuilder {
 	/// Build Favorite Beers Table View Controller
 	private func buildFavoriteBeersTable() -> UINavigationController {
 		let viewController = FavoriteBeersViewControllerBuilder().build()
-		viewController.title = "Favorite Beers"
+		viewController.title = "favBeersNavItemTitle".localized
 		
-		let tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.fill"), tag: 1)
+		let tabBarItem = UITabBarItem(title: "favBeersTabBarItem".localized, image: UIImage(systemName: "star.fill"), tag: 1)
 		
 		return buildNavigation(with: viewController, tabBarItem: tabBarItem)
 	}

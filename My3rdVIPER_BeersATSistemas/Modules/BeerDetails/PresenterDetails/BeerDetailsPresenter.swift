@@ -149,7 +149,8 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 	
 	func fetchDidFail(error: String) {
 		DispatchQueue.main.async {
-			self.view?.showMessageAlert(title: "No Internet Connection", message: "It seems that your device has no internet connection, please try again later")
+			self.view?.showMessageAlert(title: "alertControllerNoInternetTitle".localized,
+										message: "alertControllerNoInternetMsg".localized)
 			self.view?.showNoInternetConnectionLabel()
 		}
 	}

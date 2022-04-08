@@ -137,19 +137,21 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 			self.stopAndHideActivity()
 			
 			self.noInternetLabel.isHidden   = false
-			self.noInternetLabel.text = "No internet connection. Please Try again later."
+			self.noInternetLabel.text = "emptyResultsLabelNoInternet".localized
 		}
 	}
 	
 	
 	// MARK: - Show Messages of Beers Saved (or not) in the data base
 	func showBeerSavedSuccessfullyMsg() {
-		showMessageAlert(title: "Excellent!", message: "The beer was successfully saved in your list of Favorite Beers!")
+		showMessageAlert(title: "beerSavedSuccessfullyTitle".localized,
+						 message: "beerSavedSuccessfullyMsg".localized)
 	}
 	
 	
 	func showBeerCannotBeSavedMsg() {
-		showMessageAlert(title: "Oops!", message: "This beer is already in your list of Favorite Beers! Therefore, it will not be saved again in the list.")
+		showMessageAlert(title: "beerCannotBeSavedTitle".localized,
+						 message: "beerCannotBeSavedMsg".localized)
 	}
 	
 	

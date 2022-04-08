@@ -13,6 +13,7 @@
 		1120E6E3280036CB0091CDF0 /* FavBeerDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1120E6E2280036CB0091CDF0 /* FavBeerDetailsViewController.storyboard */; };
 		1120E6E6280039960091CDF0 /* FavBeerDetailsContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120E6E5280039960091CDF0 /* FavBeerDetailsContracts.swift */; };
 		1120E6E9280043930091CDF0 /* FavBeerDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120E6E8280043930091CDF0 /* FavBeerDetailsPresenter.swift */; };
+		1120E6F12800933C0091CDF0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1120E6F32800933C0091CDF0 /* Localizable.strings */; };
 		112E518D27F74635009C4B16 /* FavoriteBeersContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E518C27F74635009C4B16 /* FavoriteBeersContracts.swift */; };
 		112E519027F74895009C4B16 /* FavoriteBeersTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E518F27F74895009C4B16 /* FavoriteBeersTablePresenter.swift */; };
 		115D973627E494D80012D71C /* BeerDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115D973527E494D80012D71C /* BeerDetailsPresenter.swift */; };
@@ -54,6 +55,9 @@
 		1120E6E2280036CB0091CDF0 /* FavBeerDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavBeerDetailsViewController.storyboard; sourceTree = "<group>"; };
 		1120E6E5280039960091CDF0 /* FavBeerDetailsContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavBeerDetailsContracts.swift; sourceTree = "<group>"; };
 		1120E6E8280043930091CDF0 /* FavBeerDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavBeerDetailsPresenter.swift; sourceTree = "<group>"; };
+		1120E6F22800933C0091CDF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1120E6F4280099090091CDF0 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1120E6F52800A6070091CDF0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		112E518C27F74635009C4B16 /* FavoriteBeersContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBeersContracts.swift; sourceTree = "<group>"; };
 		112E518F27F74895009C4B16 /* FavoriteBeersTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBeersTablePresenter.swift; sourceTree = "<group>"; };
 		115D973527E494D80012D71C /* BeerDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				11E1D66627DFB0970083841D /* Assets.xcassets */,
 				11E1D66827DFB0970083841D /* LaunchScreen.storyboard */,
 				11E1D66B27DFB0970083841D /* Info.plist */,
+				1120E6F32800933C0091CDF0 /* Localizable.strings */,
 			);
 			path = My3rdVIPER_BeersATSistemas;
 			sourceTree = "<group>";
@@ -405,6 +410,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
+				fr,
 			);
 			mainGroup = 11E1D65127DFB0900083841D;
 			productRefGroup = 11E1D65B27DFB0910083841D /* Products */;
@@ -424,6 +431,7 @@
 				11E1D66A27DFB0970083841D /* LaunchScreen.storyboard in Resources */,
 				11C28E8827F7267C002C626A /* FavoriteBeersViewController.storyboard in Resources */,
 				1120E6E3280036CB0091CDF0 /* FavBeerDetailsViewController.storyboard in Resources */,
+				1120E6F12800933C0091CDF0 /* Localizable.strings in Resources */,
 				11E1D66727DFB0970083841D /* Assets.xcassets in Resources */,
 				1198EC0227E38E12001BC70B /* BeerDetailsViewController.storyboard in Resources */,
 				11E1D68027DFBB400083841D /* BeersCollectionViewController.storyboard in Resources */,
@@ -475,6 +483,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1120E6F32800933C0091CDF0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1120E6F22800933C0091CDF0 /* en */,
+				1120E6F4280099090091CDF0 /* es-419 */,
+				1120E6F52800A6070091CDF0 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		11E1D66827DFB0970083841D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -490,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -551,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

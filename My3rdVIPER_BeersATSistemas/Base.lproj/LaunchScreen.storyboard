@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="240" id="cD9-Vm-rHk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Indie Data Base" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSA-Vv-dkg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indie Beer Data Base" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSA-Vv-dkg">
                                 <rect key="frame" x="16" y="344" width="396" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="yf5-hU-pNB"/>

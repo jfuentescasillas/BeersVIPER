@@ -46,7 +46,7 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	// MARK: - Life cycle
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-				
+						
 		presenter?.viewDidLoad()
 		initialValues()
 	}
@@ -54,6 +54,10 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	
 	// MARK: - Private Methods of this class
 	private func initialValues() {
+		resetSearchOutlet.title = "beersResetButtonTitle".localized
+		searchFavoriteBeer.placeholder = "searchFavBeerPlaceholder".localized
+		emptyFavoriteLabel.text = "emptyFavoriteListTxt".localized
+		
 		registerNotifications()
 		
 		if presenter?.numOfFavBeers == 0 {
@@ -124,7 +128,8 @@ extension FavoriteBeersViewController: UISearchBarDelegate {
 		if !searchedFavBeerName.isEmpty {
 			presenter?.searchFavoriteBeer(withQuery: searchedFavBeerName)
 		} else {
-			showMessageAlert(title: "Invalid Query", message: "Your search must not be empty. Please insert a valid value in order to search a beer in your list of favorites.")
+			showMessageAlert(title: "alertControllerInvalidQueryTitle".localized,
+							 message: "alertControllerInvalidQueryMsg".localized)
 		}
 		
 		DispatchQueue.main.async {

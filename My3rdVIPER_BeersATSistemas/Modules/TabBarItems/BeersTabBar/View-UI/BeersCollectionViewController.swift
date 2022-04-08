@@ -44,6 +44,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		resetBeerSearchButtonItem.title = "beersResetButtonTitle".localized
 		emptyResultsLabel.isHidden = true
 		
 		setSearchBar()
@@ -89,7 +90,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 		self.activityIndicator.hidesWhenStopped = true
 		
 		self.emptyResultsLabel.isHidden   = false
-		self.emptyResultsLabel.text = "No internet connection. Please Try again later."
+		self.emptyResultsLabel.text = "emptyResultsLabelNoInternet".localized
 	}
 	
 	
@@ -106,7 +107,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 	private func setSearchBar() {
 		resetBeerSearchButtonItem.isEnabled = false
 		beersSearchBar.delegate = self
-		beersSearchBar.placeholder = "Search for a beer..."
+		beersSearchBar.placeholder = "beersSearchBarPlaceholder".localized
 	}
 	
 	
@@ -152,7 +153,7 @@ class BeersCollectionViewController: UIViewController, BeersCollectionViewContra
 			self.beersCollectionView.isHidden = true
 			
 			self.emptyResultsLabel.isHidden   = false
-			self.emptyResultsLabel.text = "There were no results for the beer you requested. Please try with another name."
+			self.emptyResultsLabel.text = "emptyResultsLabelNoResults".localized
 		}
 	}
 	
@@ -234,7 +235,8 @@ extension BeersCollectionViewController: UISearchBarDelegate {
 			searchedBeer = searchedBeer.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 			presenter?.fetchSearchedItems(searchedName: searchedBeer)
 		} else {
-			showMessageAlert(title: "Invalid Text Input", message: "Your search can only contain numbers/digits and/or spaces, please try again with a valid format.")
+			showMessageAlert(title: "alertControllerInvalidTextInputTitle".localized,
+							 message: "alertControllerInvalidTextInputMsg".localized)
 		}
 		
 		// This lines help to hide the keyboard once the search was requested

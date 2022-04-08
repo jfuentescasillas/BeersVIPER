@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  My3rdVIPER_BeersATSistemas
+
+  Created by Jorge Fuentes Casillas on 08/04/22.
+  
+*/
+
+
+// MARK: - Initial controller builder
+// buildBeersCollection()
+"beersNavItemTitle" 					= "Bières Indies";
+"beersTabBarItem" 						= "Bières";
+
+// buildFavoriteBeersTable()
+"favBeersNavItemTitle" 					= "Bières Favorites";
+"favBeersTabBarItem" 					= "Favorites";
+
+
+// MARK: - BeersCollection
+// ViewController
+"beersResetButtonTitle"		 			= "Effacer";
+"beersSearchBarPlaceholder" 			= "Rechercher une bière...";
+"beersSearchBarInvalidTextInputTitle" 	= "Texte Invalide";
+"beersSearchBarInvalidTextInputMessage" = "Seuls des valeurs alphanumériques sont permis. Veuillez réessayer une autre recherche avec des caractères valides.";
+"emptyResultsLabelNoInternet"		    = "Pas de connexion internet. Veuillez réessayer plus tard.";
+"emptyResultsLabelNoResults"		    = "Il n'y a pas des résultas pour votre recherche. Veuillez réessayer avec un autre nom de bière.";
+
+// Alert controller messages in BeersCollectionViewController
+"alertControllerInvalidTextInputTitle" = "Texte non valide";
+"alertControllerInvalidTextInputMsg"   = "La recherche ne peut contenir que des lettres, des numéros et/ou des espaces en blanc. Veuillez réessayer avec un autre format valide.";
+
+// Presenter
+// Alert controller messages in BeersCollectionPresenter
+"alertControllerNoInternetTitle" = "Pas de connexion internet";
+"alertControllerNoInternetMsg"	 = "Il semble que votre dispositif n'a pas de connexion internet. Veuillez réesayer plus tard.";
+
+
+//----------------------------------------------
+// MARK: - Beer Details
+"beerSavedSuccessfullyTitle" = "Fantastique!";
+"beerSavedSuccessfullyMsg"   = "La bière a été enregistrée avec succès dans ta liste de bières favorites!";
+
+"beerCannotBeSavedTitle"     = "Oupsie!";
+"beerCannotBeSavedMsg"		 = "Cette bière se trouve déjà dans ta liste de favorites! Donc, elle n'y sera pas réenregistrée.";
+
+
+//----------------------------------------------
+// MARK: - Favorite Beer
+// View Controller
+"searchFavBeerPlaceholder" = "Recherche ta bière favorite...";
+"emptyFavoriteListTxt" = "¡Ta liste de bières favorites est vide! Pour en enregistrer une, fais-le dès la fenêtre de Bières. Dans la liste de bières, click sur l'une des bières et dedans sa fenêtre de détails, appuis le bouton \"Enregistrer\", trouvé dans le coin supérior droit de l'écran.";
+
+// Alert controller messages
+"alertControllerInvalidQueryTitle" = "Requête invalide";
+"alertControllerInvalidQueryMsg"   = "Le contenu de la recherche ne peut pas être vide. Veuillez utiliser une valeur valide afin de rechercher une bière dans votre liste de bière favorites.";
+
+// Presenter
+// Alert controller messages
+"noBeersFoundTitle" = "Aucune bière trouvée!";
+"noBeersFoundMsg"   = "Il n'y a aucune bière dans ta liste de favorites avec le nom demandé. Veuillez reéssayer avec un autre nom de bière.";

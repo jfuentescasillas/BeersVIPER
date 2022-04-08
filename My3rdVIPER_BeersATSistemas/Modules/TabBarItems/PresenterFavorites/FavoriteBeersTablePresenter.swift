@@ -67,7 +67,8 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 					
 				}*/
 			} else if isSearching {
-				view?.showMessageAlert(title: "No Beers Found!", message: "Your favorite list of beers does not have any beer with the requested query, please try again with another name.")
+				view?.showMessageAlert(title: "noBeersFoundTitle".localized,
+									   message: "noBeersFoundMsg".localized)
 			} else {
 				print("Initial status with an empty list.")
 			}
