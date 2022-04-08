@@ -68,6 +68,20 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 					favBeer.setValue(viewModel.beerDetailsID, forKey: "favBeerID")
 					favBeer.setValue(viewModel.beerDetailsName, forKey: "favBeerName")
 					favBeer.setValue(viewModel.beerDetailsDescription, forKey: "favBeerDescription")
+					favBeer.setValue(viewModel.beerDetails1stBrewed, forKey: "favBeer1stBrewed")
+					favBeer.setValue(viewModel.beerDetailsAbv, forKey: "favBeerABV")
+					favBeer.setValue(viewModel.beerDetailsTagline, forKey: "favBeerTagline")
+					favBeer.setValue(viewModel.beerDetailsFoodPairing, forKey: "favBeerFoodPairing")
+					favBeer.setValue(viewModel.beerDetailsBrewersTips, forKey: "favBeerBrewerTips")
+					favBeer.setValue(viewModel.beerDetailsOrigGrav, forKey: "favBeerOrigGrav")
+					favBeer.setValue(viewModel.beerDetailsFinalGrav, forKey: "favBeerFinalGrav")
+					favBeer.setValue(viewModel.beerDetailsAttenuationLvl, forKey: "favBeerAttenLvl")
+					favBeer.setValue(viewModel.beerDetailsSRM, forKey: "favBeerSRM")
+					favBeer.setValue(viewModel.beerDetailsEBC, forKey: "favBeerEBC")
+					favBeer.setValue(viewModel.beerDetailsIBU, forKey: "favBeerIBU")
+					favBeer.setValue(viewModel.beerDetailsPH, forKey: "favBeerPh")
+					favBeer.setValue(viewModel.beerDetailsContributedBy, forKey: "favBeerContributedBy")
+					
 					
 					// Saving the image, which is Data. If some error occurs in the beerImage, the default placeholder will be shown in the cell along with all the data previously saved in favBeer.setValue(...)
 					guard let imgData = imgData else { return }

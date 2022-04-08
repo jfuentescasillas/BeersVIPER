@@ -166,6 +166,7 @@ extension FavoriteBeersViewController: UITableViewDataSource {
 
 // MARK: - Extension: UITableViewDelegate
 extension FavoriteBeersViewController: UITableViewDelegate {
+	// Table Delegate methods to delete a row
 	func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
 		return .delete
 	}
@@ -179,5 +180,13 @@ extension FavoriteBeersViewController: UITableViewDelegate {
 			presenter?.deleteFavBeer(at: indexPath)
 			favBeersTableView.endUpdates()
 		}
+	}
+	
+	
+	// Cell is clicked
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		favBeersTableView.deselectRow(at: indexPath, animated: true)
+		
+		presenter?.didSelectItem(at: indexPath)
 	}
 }

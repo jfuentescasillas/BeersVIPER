@@ -11,11 +11,16 @@ import UIKit
 
 class FavoriteBeersViewControllerBuilder {
 	func build() -> UIViewController {
-		let viewController = FavoriteBeersViewController.createFromStoryboard()
-		let presenter = FavoriteBeersTablePresenter()
+		let viewController 		 = FavoriteBeersViewController.createFromStoryboard()
+		let presenter 			 = FavoriteBeersTablePresenter()
+		let wireframe 			 = FavoriteBeerTableWireframe()
 		
 		viewController.presenter = presenter
-		presenter.view = viewController
+		
+		presenter.view 			 = viewController
+		presenter.wireframe 	 = wireframe
+		
+		wireframe.view 			 = viewController
 		
 		/*let interactor = BeersCollectionInteractor()
 		interactor.beersProvider = NetworkBeersCollectionProvider()

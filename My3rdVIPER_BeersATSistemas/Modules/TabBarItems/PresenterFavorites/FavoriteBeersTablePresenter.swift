@@ -13,6 +13,8 @@ import CoreData
 class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	// MARK: - Properties related to the PresenterContract
 	weak var view: FavoriteBeersTableViewContract?
+	var wireframe: FavoriteBeerTableWireframeContract?
+	
 	var numOfFavBeers: Int {
 		return favBeers.count
 	}
@@ -21,7 +23,7 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	lazy var context = appDelegate.persistentContainer.viewContext
 	
-	// MARK: Private Properties of the class
+	// MARK: - Private Properties of the class
 	private var favBeers = [FavoriteBeer]() {
 		didSet {
 			view?.reloadData()
@@ -110,6 +112,17 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 		return favBeers[indexPath.row]
 	}
 	
+	
+	// MARK: - Did Select Item
+	func didSelectItem(at indexPath: IndexPath) {
+		/*let beerName: String = favBeers[indexPath.row].favBeerName!
+		print("The BeerName of the clicked cell is: \(beerName) (in FavoriteBeersTablePresenter)")*/
+		
+		wireframe?.navigate(to: favBeers[indexPath.row])
+		/*print("BeerID: \(beerID) (in BeersCollectionPresenter)")*/
+		
+		//wireframe?.navigate(to: beerID)
+	}
 	
 	// MARK: - Deinit
 	deinit {
