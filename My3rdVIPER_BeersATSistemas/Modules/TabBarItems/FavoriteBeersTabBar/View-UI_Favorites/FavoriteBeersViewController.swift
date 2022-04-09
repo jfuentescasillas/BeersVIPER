@@ -11,6 +11,8 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	// MARK: - Properties
 	var presenter: FavoriteBeersTablePresenterContract?
 	
+	var isSearching: Bool = false
+	
 	// MARK: - Elements in Storyboard
 	@IBOutlet weak var resetSearchOutlet: UIBarButtonItem!
 	@IBOutlet weak var searchFavoriteBeer: UISearchBar!
@@ -54,25 +56,29 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	
 	// MARK: - Private Methods of this class
 	private func initialValues() {
-		resetSearchOutlet.title = "beersResetButtonTitle".localized
+		if !isSearching {
+			resetSearchOutlet.isEnabled = false
+		} else {
+			resetSearchOutlet.isEnabled = true
+		}
+			
+		resetSearchOutlet.title 	   = "beersResetButtonTitle".localized
 		searchFavoriteBeer.placeholder = "searchFavBeerPlaceholder".localized
-		emptyFavoriteLabel.text = "emptyFavoriteListTxt".localized
+		emptyFavoriteLabel.text 	   = "emptyFavoriteListTxt".localized
 		
 		registerNotifications()
 		
 		if presenter?.numOfFavBeers == 0 {
 			DispatchQueue.main.async {
-				self.favBeersTableView.isHidden = true
+				self.favBeersTableView.isHidden  = true
 				self.emptyFavoriteLabel.isHidden = false
 			}
 		} else {
 			DispatchQueue.main.async {
-				self.favBeersTableView.isHidden = false
+				self.favBeersTableView.isHidden  = false
 				self.emptyFavoriteLabel.isHidden = true
 			}
 		}
-		
-		resetSearchOutlet.isEnabled = false
 	}
 	
 	
@@ -83,8 +89,9 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 	
 	
 	private func resetDefaultFavoriteBeers() {
-		searchFavoriteBeer.text = ""
+		searchFavoriteBeer.text 	= ""
 		resetSearchOutlet.isEnabled = false
+		isSearching 				= false
 		
 		presenter?.viewDidLoad()
 		presenter?.resetOrCancelButtonPressed()
@@ -122,6 +129,7 @@ class FavoriteBeersViewController: UIViewController, FavoriteBeersTableViewContr
 extension FavoriteBeersViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		resetSearchOutlet.isEnabled = true
+		isSearching = true
 		
 		guard let searchedFavBeerName = searchBar.text else { return }
 		
@@ -141,6 +149,7 @@ extension FavoriteBeersViewController: UISearchBarDelegate {
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		resetDefaultFavoriteBeers()
 		presenter?.resetOrCancelButtonPressed()
+		isSearching = false
 		
 		// This lines help to hide the keyboard once the cancel button was clicked
 		DispatchQueue.main.async {

@@ -30,12 +30,18 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 		}
 	}
 	private var isSearching: Bool = false
+	private var auxQuery: String = ""
 	
 	
 	// MARK: - Methods related to the PresenterContract
 	func viewDidLoad() {
 		view?.startActivity()
-		loadFavBeersData()
+		
+		if !isSearching {
+			loadFavBeersData()
+		} else {
+			searchFavoriteBeer(withQuery: auxQuery)
+		}
 	}
 	
 	
@@ -95,7 +101,9 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	
 	// MARK: Search Data
 	func searchFavoriteBeer(withQuery: String) {
+		auxQuery = withQuery
 		isSearching = true
+		
 		let searchRequest: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest()
 		searchRequest.predicate = NSPredicate(format: "favBeerName CONTAINS[cd] %@", withQuery)
 		
@@ -105,6 +113,8 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	
 	func resetOrCancelButtonPressed() {
 		isSearching = false
+		auxQuery = ""
+		viewDidLoad()
 	}
 	
 	

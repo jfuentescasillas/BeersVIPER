@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  My3rdVIPER_BeersATSistemas
+
+  Created by Jorge Fuentes Casillas on 08/04/22.
+  
+*/
+
+
+// MARK: - Initial controller builder
+// buildBeersCollection()
+"beersNavItemTitle" 					= "Beer Indies";
+"beersTabBarItem" 						= "Beers";
+
+// buildFavoriteBeersTable()
+"favBeersNavItemTitle" 					= "Favorite Beers";
+"favBeersTabBarItem" 					= "Favorites";
+
+
+// MARK: - BeersCollection
+// ViewController
+"beersResetButtonTitle"		 			= "Reset";
+"beersSearchBarPlaceholder" 			= "Search for a beer...";
+"beersSearchBarInvalidTextInputTitle" 	= "Invalid text input";
+"beersSearchBarInvalidTextInputMessage" = "Only alphanumeric characters are allowed in the search bar. Please try another search with valid characters";
+"emptyResultsLabelNoInternet"		    = "No internet connection. Please Try again later.";
+"emptyResultsLabelNoResults"		    = "There were no results for the beer you requested. Please try with another name.";
+
+// Alert controller messages in BeersCollectionViewController
+"alertControllerInvalidTextInputTitle" = "Invalid Text Input";
+"alertControllerInvalidTextInputMsg"   = "Your search can only contain numbers, letters and/or blank spaces, please try again with a valid format.";
+
+// Presenter
+// Alert controller messages in BeersCollectionPresenter
+"alertControllerNoInternetTitle" = "No Internet Connection";
+"alertControllerNoInternetMsg"	 = "It seems that your device has no internet connection, please try again later.";
+
+
+//----------------------------------------------
+// MARK: - Beer Details
+"beerSavedSuccessfullyTitle" = "Excellent!";
+"beerSavedSuccessfullyMsg"   = "The beer was successfully saved in your list of Favorite Beers!";
+
+"beerCannotBeSavedTitle"     = "Oops!";
+"beerCannotBeSavedMsg"		 = "This beer is already in your list of Favorite Beers! Therefore, it will not be saved again in the list.";
+
+
+//----------------------------------------------
+// MARK: - Favorite Beer
+// View Controller
+"searchFavBeerPlaceholder" = "Search your favorite beer...";
+"emptyFavoriteListTxt" = "Your list of favorite beers is currently empty! You can save a beer in this favorite list from the Beer tab! Just click on the beer you like from the list, and inside the details of that selected beer, press the \"Save\" button in the right upper corner of the screen to save it in favorites.";
+
+// Alert controller messages
+"alertControllerInvalidQueryTitle" = "Invalid Query";
+"alertControllerInvalidQueryMsg"   = "Your search must not be empty. Please insert a valid value in order to search a beer in your list of favorites.";
+
+// Presenter
+// Alert controller messages
+"noBeersFoundTitle" = "No Beers Found!";
+"noBeersFoundMsg"   = "Your favorite list of beers does not have any beer with the requested query, please try again with another name.";
