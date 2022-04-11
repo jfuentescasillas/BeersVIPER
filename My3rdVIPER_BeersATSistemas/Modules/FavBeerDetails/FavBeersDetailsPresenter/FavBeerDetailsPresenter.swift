@@ -22,8 +22,6 @@ class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
 	
 	// MARK: - Methods related to Presenter Contract/Protocol
 	func viewDidLoad() {
-		//print("FavoriteBeer: \(favoriteBeer!) (inside FavBeerDetailsPresenter")
-		
 		guard let favoriteBeer = favoriteBeer else { return }
 
 		configureView(with: favoriteBeer)
@@ -32,7 +30,7 @@ class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
 	
 	func saveCommentsAndUpdateCoreData(beerOpinion: String) {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		let context = appDelegate.persistentContainer.viewContext
+		let context 	= appDelegate.persistentContainer.viewContext
 		
 		guard let favoriteBeer = favoriteBeer else { return }
 		

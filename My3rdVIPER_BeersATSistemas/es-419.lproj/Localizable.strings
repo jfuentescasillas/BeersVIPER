@@ -51,7 +51,7 @@
 // MARK: - Favorite Beer
 // View Controller
 "searchFavBeerPlaceholder" = "Busca tu cerveza favorita...";
-"emptyFavoriteListTxt" = "¡Tu lista de cervezas favoritas está actualmente vacía! Para guardar una cerveza en esta lista de favoritas, hazlo desde la pestaña de Cervezas. En la lista de cervezas, haz click en la cerveza que te guste, y en su ventana de Detalles pulsa el botón \"Guardar\" en la esquina superior derecha de la pantalla.";
+"emptyFavoriteListTxt" 	   = "¡Tu lista de cervezas favoritas está actualmente vacía! Para guardar una cerveza en esta lista de favoritas, hazlo desde la pestaña de Cervezas. En la lista de cervezas, haz click en la cerveza que te guste, y en su ventana de Detalles pulsa el botón \"Guardar\" en la esquina superior derecha de la pantalla.";
 
 // Alert controller messages
 "alertControllerInvalidQueryTitle" = "Búsqueda Inválida";

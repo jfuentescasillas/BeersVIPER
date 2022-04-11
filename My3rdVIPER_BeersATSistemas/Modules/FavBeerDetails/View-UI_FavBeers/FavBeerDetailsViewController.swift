@@ -49,12 +49,12 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 	// MARK: - Methods related to View Contract/Protocol
 	func configure(with favoriteBeer: FavoriteBeer) {
 		//print("favoriteBeer: \(favoriteBeer) (inside FavBeerDetailsViewController) configure(with...)")
-		title = favoriteBeer.favBeerName
-		favBeerImage.image = UIImage(data: favoriteBeer.favBeerImage!)
+		title 					   = favoriteBeer.favBeerName
+		favBeerImage.image 		   = UIImage(data: favoriteBeer.favBeerImage!)
 		favBeerDescriptionLbl.text = favoriteBeer.favBeerDescription
-		favBeer1stBrewedLbl.text = favoriteBeer.favBeer1stBrewed
-		favBeerABVLbl.text = "\(favoriteBeer.favBeerABV)"
-		favBeerTaglineLbl.text = favoriteBeer.favBeerTagline
+		favBeer1stBrewedLbl.text   = favoriteBeer.favBeer1stBrewed
+		favBeerABVLbl.text 		   = "\(favoriteBeer.favBeerABV)"
+		favBeerTaglineLbl.text 	   = favoriteBeer.favBeerTagline
 		
 		// ** Filling the Favorite Beer Food Pairing Label **
 		var tempFoodPairing = [String]()
@@ -67,15 +67,15 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 		 self.favBeerFoodPairingLbl.text = tempFoodPairing.joined(separator: "")
 		// ** Finished the Filling of the Favorite Beer Food Pairing Label **
 		
-		self.favBeerTipsLbl.text = favoriteBeer.favBeerBrewerTips
-		self.favBeerOrigGravLbl.text = "\(favoriteBeer.favBeerOrigGrav)"
-		self.favBeerFinalGravLbl.text = "\(favoriteBeer.favBeerFinalGrav)"
-		self.favBeerAttenLevelLbl.text = "\(favoriteBeer.favBeerAttenLvl)"
-		self.favBeerSRMLbl.text = "\(favoriteBeer.favBeerSRM)"
-		self.favBeerEBCLbl.text = "\(favoriteBeer.favBeerEBC)"
-		self.favBeerIBULbl.text = "\(favoriteBeer.favBeerIBU)"
-		self.favBeerPhLbl.text = "\(favoriteBeer.favBeerPh)"
-		self.favBeerContributedByLbl.text = favoriteBeer.favBeerContributedBy
+		self.favBeerTipsLbl.text 	   		  = favoriteBeer.favBeerBrewerTips
+		self.favBeerOrigGravLbl.text   		  = "\(favoriteBeer.favBeerOrigGrav)"
+		self.favBeerFinalGravLbl.text  		  = "\(favoriteBeer.favBeerFinalGrav)"
+		self.favBeerAttenLevelLbl.text 		  = "\(favoriteBeer.favBeerAttenLvl)"
+		self.favBeerSRMLbl.text 	   		  = "\(favoriteBeer.favBeerSRM)"
+		self.favBeerEBCLbl.text 	   		  = "\(favoriteBeer.favBeerEBC)"
+		self.favBeerIBULbl.text 	   		  = "\(favoriteBeer.favBeerIBU)"
+		self.favBeerPhLbl.text 		   		  = "\(favoriteBeer.favBeerPh)"
+		self.favBeerContributedByLbl.text 	  = favoriteBeer.favBeerContributedBy
 		self.favBeerObservationsTextView.text = favoriteBeer.favBeerComments
 	}
 	

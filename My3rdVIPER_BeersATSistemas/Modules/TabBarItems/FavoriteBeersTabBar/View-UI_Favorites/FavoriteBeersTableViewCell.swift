@@ -28,10 +28,10 @@ class FavoriteBeersTableViewCell: UITableViewCell {
 	
 	// MARK: - Configuration
 	func configure(with viewModel: FavoriteBeer) {
-		favBeerNameLbl.text = viewModel.favBeerName
+		favBeerNameLbl.text 	   = viewModel.favBeerName
 		favBeerDescriptionLbl.text = viewModel.favBeerDescription
 		
-		guard let favBeerImg = viewModel.favBeerImage else { return }
-		favBeerImageView.image = UIImage(data: favBeerImg)
+		guard let favBeerImg 	   = viewModel.favBeerImage else { return }
+		favBeerImageView.image 	   = UIImage(data: favBeerImg)
 	}
 }

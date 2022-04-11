@@ -20,7 +20,7 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	}
 		
 	// Core Data Properties
-	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	let appDelegate  = UIApplication.shared.delegate as! AppDelegate
 	lazy var context = appDelegate.persistentContainer.viewContext
 	
 	// MARK: - Private Properties of the class
@@ -101,7 +101,7 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	
 	// MARK: Search Data
 	func searchFavoriteBeer(withQuery: String) {
-		auxQuery = withQuery
+		auxQuery 	= withQuery
 		isSearching = true
 		
 		let searchRequest: NSFetchRequest<FavoriteBeer> = FavoriteBeer.fetchRequest()
@@ -113,7 +113,7 @@ class FavoriteBeersTablePresenter: FavoriteBeersTablePresenterContract {
 	
 	func resetOrCancelButtonPressed() {
 		isSearching = false
-		auxQuery = ""
+		auxQuery 	= ""
 		viewDidLoad()
 	}
 	

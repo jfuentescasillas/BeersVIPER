@@ -37,8 +37,8 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 	
 	
 	func saveBeerButtonPressed(viewModel: BeerDetailsViewModel) {
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		let context = appDelegate.persistentContainer.viewContext
+		let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+		let context 	 = appDelegate.persistentContainer.viewContext
 		
 		guard let imgURL = viewModel.beerDetailsimageURL else { return }
 		
@@ -139,7 +139,7 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 		
 		guard let tempBeer = self.beer else { return }
 		
-		let beerViewModel = tempBeer.toDetailsViewModel
+		let beerViewModel  = tempBeer.toDetailsViewModel
 		//print("BeerViewModel: \(String(describing: beerViewModel))")
 		
 		view?.configure(with: beerViewModel)
