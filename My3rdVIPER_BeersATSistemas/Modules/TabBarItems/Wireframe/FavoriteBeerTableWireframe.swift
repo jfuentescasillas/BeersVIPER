@@ -9,7 +9,7 @@ import UIKit
 
 
 class FavoriteBeerTableWireframe: FavoriteBeerTableWireframeContract {
-	var view: UIViewController?
+	weak var view: UIViewController?
 	
 	
 	func navigate(to favoriteBeer: FavoriteBeer) {

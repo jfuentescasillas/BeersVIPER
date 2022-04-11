@@ -13,6 +13,7 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 	var presenter: FavBeerDetailsPresenterContract?
 	
 	// Elements in storyboard
+	@IBOutlet weak var favBeerScrollView: UIScrollView!
 	@IBOutlet weak var favBeerImage: UIImageView!
 	@IBOutlet weak var favBeerDescriptionLbl: UILabel!
 	@IBOutlet weak var favBeer1stBrewedLbl: UILabel!
@@ -36,6 +37,9 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		registerNotifications()
+		hideKeyboardWhenTappedAround()
+		
 		saveObservationOutletBtn.setTitle("favBeerSaveObservationButtonTitle".localized,
 										  for: .normal)
 		presenter?.viewDidLoad()
@@ -81,6 +85,39 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 		guard let opinion = favBeerObservationsTextView.text else { return }
 		
 		presenter?.saveCommentsAndUpdateCoreData(beerOpinion: opinion)
+	}
+	
+	
+	// MARK: - Keyboard related Methods
+	// Methods to Place Keyboard Under the CollectionView
+	func registerNotifications() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+	
+	
+	@objc func keyboardWillShow(notification: NSNotification) {
+		guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+		
+		favBeerScrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+	}
+	
+	
+	@objc func keyboardWillHide(notification: NSNotification) {
+		favBeerScrollView.contentInset.bottom = 0
+	}
+	
+	
+	// Methods to Hide keyboard when the user taps in the screen
+	private func hideKeyboardWhenTappedAround() {
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+		tap.cancelsTouchesInView = false
+		view.addGestureRecognizer(tap)
+	}
+	
+	
+	@objc func dismissKeyboard() {
+		favBeerObservationsTextView.resignFirstResponder()  // also can be used: view.endEditing(true)
 	}
 	
 	

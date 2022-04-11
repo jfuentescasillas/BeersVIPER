@@ -11,7 +11,7 @@ import CoreData
 
 class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
 	// MARK: - Properties related to Presenter Contract/Protocol
-	var view: FavBeerDetailsViewContract?
+	weak var view: FavBeerDetailsViewContract?
 	
 	var favoriteBeer: FavoriteBeer?
 	

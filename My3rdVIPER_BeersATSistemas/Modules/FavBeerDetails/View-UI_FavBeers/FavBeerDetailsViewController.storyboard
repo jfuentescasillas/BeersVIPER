@@ -405,6 +405,7 @@
                         <outlet property="favBeerOrigGravLbl" destination="wZm-IJ-IHM" id="PJb-OM-bk9"/>
                         <outlet property="favBeerPhLbl" destination="FTt-eY-lsu" id="Zzo-FN-MTo"/>
                         <outlet property="favBeerSRMLbl" destination="HGC-Mn-OeX" id="mR4-Wb-c2w"/>
+                        <outlet property="favBeerScrollView" destination="mjN-bg-7bo" id="RDY-XJ-hry"/>
                         <outlet property="favBeerTaglineLbl" destination="UVZ-hy-Bs0" id="DOK-9Q-cTM"/>
                         <outlet property="favBeerTipsLbl" destination="tPQ-hg-7Rv" id="Tbz-su-6AF"/>
                         <outlet property="saveObservationOutletBtn" destination="YlX-St-ArC" id="T73-yt-n8u"/>
