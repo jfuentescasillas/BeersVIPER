@@ -21,7 +21,7 @@ class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
 	
 	// MARK: - Methods related to Presenter Contract/Protocol
 	func viewDidLoad() {
-		//print("FavoriteBeer: \(favoriteBeer!) (inside FavBeerDetailsPresenter")
+		//print("FavoriteBeer: \(favoriteBeer!) (inside FavBeerDetailsPresenter") 
 		
 		guard let favoriteBeer = favoriteBeer else { return }
 
