@@ -50,7 +50,7 @@
 // MARK: - Favorite Beer
 // View Controller
 "searchFavBeerPlaceholder" = "Search your favorite beer...";
-"emptyFavoriteListTxt" = "Your list of favorite beers is currently empty! You can save a beer in this favorite list from the Beer tab! Just click on the beer you like from the list, and inside the details of that selected beer, press the \"Save\" button in the right upper corner of the screen to save it in favorites.";
+"emptyFavoriteListTxt" 	   = "Your list of favorite beers is currently empty! You can save a beer in this favorite list from the Beer tab! Just click on the beer you like from the list, and inside the details of that selected beer, press the \"Save\" button in the right upper corner of the screen to save it in favorites.";
 
 // Alert controller messages
 "alertControllerInvalidQueryTitle" = "Invalid Query";
