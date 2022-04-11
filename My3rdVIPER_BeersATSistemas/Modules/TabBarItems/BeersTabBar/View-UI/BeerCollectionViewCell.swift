@@ -21,13 +21,12 @@ class BeerCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var beerNameLbl: UILabel!
 	@IBOutlet weak var beerDescriptionLbl: UILabel!
 	
-		
+	
 	func configure(with viewModel: BeerCollectionViewCellViewModel) {
-		guard let beerImgURL = viewModel.beerImageURL else {
-			beerImage.image = UIImage(named: "beerPlaceholder-60x60")
-			
-			return
-		}
+		// In case that the placeholder is wanted to be configured from the UIImageViewExt file, comment this line of code (beerImage.image = UIImage(named: "beerPlaceholder-60x60")) and uncomment the lines in the extension file (UIImageViewExt)
+		beerImage.image = UIImage(named: "beerPlaceholder-60x60")  // Placeholder image
+		
+		guard let beerImgURL = viewModel.beerImageURL else { return	}
 		
 		beerImage.downloaded(from: beerImgURL)
 		beerNameLbl.text = viewModel.beerName
@@ -42,5 +41,5 @@ class BeerCollectionViewCell: UICollectionViewCell {
 		layer.shadowOpacity = 1
 		layer.masksToBounds = false
 		layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-	}	
+	}
 }

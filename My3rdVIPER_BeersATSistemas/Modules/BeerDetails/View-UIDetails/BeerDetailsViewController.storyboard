@@ -22,7 +22,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9LC-Ek-BTb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1037"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beerPlaceholder-60x60" translatesAutoresizingMaskIntoConstraints="NO" id="Khf-Su-wrq">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Khf-Su-wrq">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="225" id="Fkb-15-vcS"/>
@@ -425,7 +425,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beerPlaceholder-60x60" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

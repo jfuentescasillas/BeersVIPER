@@ -178,7 +178,7 @@ extension BeersCollectionViewController: UICollectionViewDataSource {
 		guard let viewModel = presenter?.cellViewModel(at: indexPath), let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeerCollectionViewCell", for: indexPath) as? BeerCollectionViewCell else {
 			fatalError("Error creating BeerCollectionViewCell")
 		}
-				
+			
 		cell.configure(with: viewModel)
 		
 		return cell

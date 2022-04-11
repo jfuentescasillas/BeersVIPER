@@ -9,15 +9,24 @@ import UIKit
 
 
 // MARK: - Extension. Download image
-fileprivate let imageCache = NSCache<NSString, UIImage>()
+/// Change the AvatarPlaceholder according to the desired avatar to use (located in the Assets folder).
+/// In case that the avatarPlaceHolder is wanted to be configured from this extension, then uncomment the next lines of code (change placeholder name (in this case: "beerPlaceholder-60x60") if needed):
+/// 
+/// fileprivate let avatarPlaceholder = UIImage(named: "beerPlaceholder-60x60")
+///
+/// and
+///
+/// image = avatarPlaceholder
 fileprivate var imageUrlString: String?
+fileprivate let imageCache = NSCache<NSString, UIImage>()
+//fileprivate let avatarPlaceholder = UIImage(named: "beerPlaceholder-60x60")
 
 
 extension UIImageView {
 	func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
 		contentMode = mode
 		imageUrlString = "\(url)"
-		image = nil
+		//image = avatarPlaceholder
 		
 		if let imageFromCache = imageCache.object(forKey: "\(url)" as NSString) {
 			self.image = imageFromCache

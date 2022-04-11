@@ -64,8 +64,9 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		scrollView.isHidden = false
-		noInternetLabel.isHidden = true
+		beerImageDetailsImg.image = UIImage(named: "beerPlaceholder-60x60")  // Placeholder image
+		scrollView.isHidden 	  = false
+		noInternetLabel.isHidden  = true
 		presenter?.viewDidLoad()		
     }
 	

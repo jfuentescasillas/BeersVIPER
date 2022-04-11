@@ -38,7 +38,7 @@
 //----------------------------------------------
 // MARK: - Beer Details
 // View Controller
-"beerSavedSuccessfullyTitle" = "Excelente!";
+"beerSavedSuccessfullyTitle" = "¡Excelente!";
 "beerSavedSuccessfullyMsg"   = "¡Cerveza guardada con éxito en tu lista de favoritas!";
 
 // Presenter
