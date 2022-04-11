@@ -28,12 +28,16 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 	@IBOutlet weak var favBeerIBULbl: UILabel!
 	@IBOutlet weak var favBeerPhLbl: UILabel!
 	@IBOutlet weak var favBeerContributedByLbl: UILabel!
+	@IBOutlet weak var favBeerObservationsTextView: UITextView!
+	@IBOutlet weak var saveObservationOutletBtn: UIButton!
 	
 	
 	// MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		saveObservationOutletBtn.setTitle("favBeerSaveObservationButtonTitle".localized,
+										  for: .normal)
 		presenter?.viewDidLoad()
     }
 	
@@ -68,6 +72,15 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 		self.favBeerIBULbl.text = "\(favoriteBeer.favBeerIBU)"
 		self.favBeerPhLbl.text = "\(favoriteBeer.favBeerPh)"
 		self.favBeerContributedByLbl.text = favoriteBeer.favBeerContributedBy
+		self.favBeerObservationsTextView.text = favoriteBeer.favBeerComments
+	}
+	
+	
+	// MARK: - Action buttons
+	@IBAction func saveObservationsActionButton(_ sender: Any) {
+		guard let opinion = favBeerObservationsTextView.text else { return }
+		
+		presenter?.saveCommentsAndUpdateCoreData(beerOpinion: opinion)
 	}
 	
 	

@@ -44,6 +44,7 @@
 // Presenter
 "beerCannotBeSavedTitle"     = "¡Épale!";
 "beerCannotBeSavedMsg"		 = "¡Esta cerveza ya está en tu lista de favoritas! No se guardará de nuevo.";
+"beerSavedCommentsDefaultValue" = "Escribe aquí tus observaciones de esta cerveza...";
 
 
 //----------------------------------------------
@@ -60,3 +61,13 @@
 // Alert controller messages
 "noBeersFoundTitle" = "¡Cervezas no encontradas!";
 "noBeersFoundMsg"   = "No se encontró ninguna cerveza en tu lista de favoritas con el nombre solicitado. Intenta de nuevo usando otro nombre, por favor.";
+
+
+// MARK: - Favorite Beer Details
+// View Controller
+"favBeerSaveObservationButtonTitle" = "Guardar Observación";
+
+// Presenter
+// Alert controller messages
+"alertControllerOpinionSavedTitle" = "¡Grandioso!";
+"alertControllerOpinionSavedMsg"   = "¡Tu comentario acerca de esta cerveza se guardó exitosamente!";

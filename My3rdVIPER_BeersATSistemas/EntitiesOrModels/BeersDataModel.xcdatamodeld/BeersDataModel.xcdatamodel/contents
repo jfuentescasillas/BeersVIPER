@@ -5,6 +5,7 @@
         <attribute name="favBeerABV" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="favBeerAttenLvl" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="favBeerBrewerTips" optional="YES" attributeType="String"/>
+        <attribute name="favBeerComments" optional="YES" attributeType="String"/>
         <attribute name="favBeerContributedBy" optional="YES" attributeType="String"/>
         <attribute name="favBeerDescription" optional="YES" attributeType="String"/>
         <attribute name="favBeerEBC" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -20,6 +21,6 @@
         <attribute name="favBeerTagline" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavoriteBeer" positionX="-63" positionY="-18" width="128" height="284"/>
+        <element name="FavoriteBeer" positionX="-63" positionY="-18" width="128" height="299"/>
     </elements>
 </model>

@@ -38,11 +38,12 @@
 
 //----------------------------------------------
 // MARK: - Beer Details
-"beerSavedSuccessfullyTitle" = "Fantastique!";
-"beerSavedSuccessfullyMsg"   = "La bière a été enregistrée avec succès dans ta liste de bières favorites!";
+"beerSavedSuccessfullyTitle" 	= "Fantastique!";
+"beerSavedSuccessfullyMsg"   	= "La bière a été enregistrée avec succès dans ta liste de bières favorites!";
 
-"beerCannotBeSavedTitle"     = "Oupsie!";
-"beerCannotBeSavedMsg"		 = "Cette bière se trouve déjà dans ta liste de favorites! Donc, elle n'y sera pas réenregistrée.";
+"beerCannotBeSavedTitle"     	= "Oh là-là!";
+"beerCannotBeSavedMsg"		 	= "Cette bière se trouve déjà dans ta liste de favorites! Donc, elle n'y sera pas réenregistrée.";
+"beerSavedCommentsDefaultValue" = "Écris ici tes observations sur cette bière...";
 
 
 //----------------------------------------------
@@ -59,3 +60,13 @@
 // Alert controller messages
 "noBeersFoundTitle" = "Aucune bière trouvée!";
 "noBeersFoundMsg"   = "Il n'y a aucune bière dans ta liste de favorites avec le nom demandé. Veuillez reéssayer avec un autre nom de bière.";
+
+
+// MARK: - Favorite Beer Details
+// View Controller
+"favBeerSaveObservationButtonTitle" = "Enregistrer l'observation";
+
+// Presenter
+// Alert controller messages
+"alertControllerOpinionSavedTitle" = "¡Merveilleux!";
+"alertControllerOpinionSavedMsg"   = "Ton commentaire sur cette bière a été enregistré avec succès!";

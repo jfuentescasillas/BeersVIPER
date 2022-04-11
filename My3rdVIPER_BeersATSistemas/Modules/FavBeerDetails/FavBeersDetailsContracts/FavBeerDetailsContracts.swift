@@ -30,6 +30,7 @@ protocol FavBeerDetailsPresenterContract: AnyObject {
 	var favoriteBeer: FavoriteBeer? { get set }
 	
 	func viewDidLoad()
+	func saveCommentsAndUpdateCoreData(beerOpinion: String)
 	/*var interactor: BeerDetailsInteractorContract? { get set }
 	var beerID: Int? { get set }
 	

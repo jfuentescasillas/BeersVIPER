@@ -5,7 +5,8 @@
 //  Created by Jorge Fuentes Casillas on 08/04/22.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 
 class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
@@ -21,11 +22,31 @@ class FavBeerDetailsPresenter: FavBeerDetailsPresenterContract {
 	
 	// MARK: - Methods related to Presenter Contract/Protocol
 	func viewDidLoad() {
-		//print("FavoriteBeer: \(favoriteBeer!) (inside FavBeerDetailsPresenter") 
+		//print("FavoriteBeer: \(favoriteBeer!) (inside FavBeerDetailsPresenter")
 		
 		guard let favoriteBeer = favoriteBeer else { return }
 
 		configureView(with: favoriteBeer)
+	}
+	
+	
+	func saveCommentsAndUpdateCoreData(beerOpinion: String) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		guard let favoriteBeer = favoriteBeer else { return }
+		
+		favoriteBeer.setValue(beerOpinion, forKey: "favBeerComments")
+		
+		// Save everything
+		do {
+			try context.save()
+		} catch {
+			print("Error trying to save favorite beer Comment inside FavBeerDetailsPresenter")
+		}
+		
+		view?.showMessageAlert(title: "alertControllerOpinionSavedTitle".localized,
+							   message: "alertControllerOpinionSavedMsg".localized)
 	}
 	
 	

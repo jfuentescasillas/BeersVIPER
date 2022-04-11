@@ -38,11 +38,12 @@
 
 //----------------------------------------------
 // MARK: - Beer Details
-"beerSavedSuccessfullyTitle" = "Excellent!";
-"beerSavedSuccessfullyMsg"   = "The beer was successfully saved in your list of Favorite Beers!";
+"beerSavedSuccessfullyTitle" 	= "Excellent!";
+"beerSavedSuccessfullyMsg"   	= "The beer was successfully saved in your list of Favorite Beers!";
 
-"beerCannotBeSavedTitle"     = "Oops!";
-"beerCannotBeSavedMsg"		 = "This beer is already in your list of Favorite Beers! Therefore, it will not be saved again in the list.";
+"beerCannotBeSavedTitle"     	= "Oops!";
+"beerCannotBeSavedMsg"		 	= "This beer is already in your list of Favorite Beers! Therefore, it will not be saved again in the list.";
+"beerSavedCommentsDefaultValue" = "Write here your observations about this beer...";
 
 
 //----------------------------------------------
@@ -59,3 +60,13 @@
 // Alert controller messages
 "noBeersFoundTitle" = "No Beers Found!";
 "noBeersFoundMsg"   = "Your favorite list of beers does not have any beer with the requested query, please try again with another name.";
+
+
+// MARK: - Favorite Beer Details
+// View Controller
+"favBeerSaveObservationButtonTitle" = "Save observation";
+
+// Presenter
+// Alert controller messages
+"alertControllerOpinionSavedTitle" = "Great!";
+"alertControllerOpinionSavedMsg"   = "Your comment about this beer was successfully saved!";

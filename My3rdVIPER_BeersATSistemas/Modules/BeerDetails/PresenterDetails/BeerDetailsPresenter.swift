@@ -6,7 +6,6 @@
 //
 
 
-import Foundation
 import CoreData
 import UIKit
 
@@ -81,6 +80,7 @@ class BeerDetailsPresenter: BeerDetailsPresenterContract {
 					favBeer.setValue(viewModel.beerDetailsIBU, forKey: "favBeerIBU")
 					favBeer.setValue(viewModel.beerDetailsPH, forKey: "favBeerPh")
 					favBeer.setValue(viewModel.beerDetailsContributedBy, forKey: "favBeerContributedBy")
+					favBeer.setValue("beerSavedCommentsDefaultValue".localized, forKey: "favBeerComments")
 					
 					
 					// Saving the image, which is Data. If some error occurs in the beerImage, the default placeholder will be shown in the cell along with all the data previously saved in favBeer.setValue(...)
