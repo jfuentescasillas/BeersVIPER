@@ -69,5 +69,5 @@
 
 // Presenter
 // Alert controller messages
-"alertControllerOpinionSavedTitle" = "¡Grandioso!";
+"alertControllerOpinionSavedTitle" = "¡Muy bien!";
 "alertControllerOpinionSavedMsg"   = "¡Tu comentario acerca de esta cerveza se guardó exitosamente!";
