@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "beerDetailsPlaceholder.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,11 +12,11 @@
           "value" : "dark"
         }
       ],
+      "filename" : "beerDetailsImagePlaceholder.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "beerPlaceholder-60x60@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +27,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "beerPlaceholder-60x60@2x.png.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

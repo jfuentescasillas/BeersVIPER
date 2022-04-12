@@ -24,7 +24,7 @@ class BeerCollectionViewCell: UICollectionViewCell {
 	
 	func configure(with viewModel: BeerCollectionViewCellViewModel) {
 		// In case that the placeholder is wanted to be configured from the UIImageViewExt file, comment this line of code (beerImage.image = UIImage(named: "beerPlaceholder-60x60")) and uncomment the lines in the extension file (UIImageViewExt)
-		beerImage.image = UIImage(named: "beerPlaceholder-60x60")  // Placeholder image
+		beerImage.image = UIImage(named: "beerCollectionImagePlaceholder")  // Placeholder image
 		
 		guard let beerImgURL = viewModel.beerImageURL else { return	}
 		
