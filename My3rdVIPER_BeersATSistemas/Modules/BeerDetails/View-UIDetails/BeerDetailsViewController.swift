@@ -166,7 +166,7 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	@IBAction func saveInFavoritesActionButton(_ sender: Any) {
 		guard let detailsToSaveInFavoriteViewModel = detailsToSaveInFavoriteViewModel else { return }
 
-		// Disable the "save in favorites" button when it was clicked once, otherwise there is a bug where the user can save multiple times the same beer in their favorite beers list before the showMessageAlert window prompts
+		// Disable the "save in favorites" button when it was clicked once, otherwise there is a bug where the user can save multiple times the same beer in their favorite beers list before the showMessageAlert window prompts.
 		saveInFavoritesButtonOutlet.isEnabled = false
 		presenter?.saveBeerButtonPressed(viewModel: detailsToSaveInFavoriteViewModel)
 	}
