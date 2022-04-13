@@ -147,12 +147,18 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	func showBeerSavedSuccessfullyMsg() {
 		showMessageAlert(title: "beerSavedSuccessfullyTitle".localized,
 						 message: "beerSavedSuccessfullyMsg".localized)
+		
+		// Re-enable the "save in favorites" button once the showMessageAlert window prompts
+		saveInFavoritesButtonOutlet.isEnabled = true
 	}
 	
 	
 	func showBeerCannotBeSavedMsg() {
 		showMessageAlert(title: "beerCannotBeSavedTitle".localized,
 						 message: "beerCannotBeSavedMsg".localized)
+		
+		// Re-enable the "save in favorites" button once the showMessageAlert window prompts
+		saveInFavoritesButtonOutlet.isEnabled = true
 	}
 	
 	
@@ -160,6 +166,8 @@ class BeerDetailsViewController: UIViewController, BeerDetailsViewContract {
 	@IBAction func saveInFavoritesActionButton(_ sender: Any) {
 		guard let detailsToSaveInFavoriteViewModel = detailsToSaveInFavoriteViewModel else { return }
 
+		// Disable the "save in favorites" button when it was clicked once, otherwise there is a bug where the user can save multiple times the same beer in their favorite beers list before the showMessageAlert window prompts
+		saveInFavoritesButtonOutlet.isEnabled = false
 		presenter?.saveBeerButtonPressed(viewModel: detailsToSaveInFavoriteViewModel)
 	}
 	
