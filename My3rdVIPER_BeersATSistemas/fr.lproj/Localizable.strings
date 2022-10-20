@@ -24,7 +24,7 @@
 "beersSearchBarInvalidTextInputTitle" 	= "Texte Invalide";
 "beersSearchBarInvalidTextInputMessage" = "Seuls des valeurs alphanumériques sont permis. Veuillez réessayer une autre recherche avec des caractères valides.";
 "emptyResultsLabelNoInternet"		    = "Pas de connexion internet. Veuillez réessayer plus tard.";
-"emptyResultsLabelNoResults"		    = "Il n'y a pas des résultas pour votre recherche. Veuillez réessayer avec un autre nom de bière.";
+"emptyResultsLabelNoResults"		    = "Il n'y a pas des résultats pour votre recherche. Veuillez réessayer avec un autre nom de bière.";
 
 // Alert controller messages in BeersCollectionViewController
 "alertControllerInvalidTextInputTitle" = "Texte non valide";

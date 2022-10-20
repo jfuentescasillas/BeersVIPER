@@ -28,9 +28,9 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	}
 	private var pageNumber: Int  	 = 1   // This is needed for the pagination
 	private var searchedName: String = ""  // When the user searches for a beer's name, it will be stored in this variable
-	var hasMoreBeers: Bool 		 	 = true
-	var isLoadingMoreBeers: Bool 	 = false
-	var isSearchingBeers: Bool   	 = false
+	private var hasMoreBeers: Bool 		 = true
+	private var isLoadingMoreBeers: Bool = false
+	private var isSearchingBeers: Bool   = false
 	
 	
 	// MARK: - Methods related with the PresenterContract
@@ -55,8 +55,6 @@ class BeersCollectionPresenter: BeerCollectionPresenterContract {
 	
 	func didSelectItem(at indexPath: IndexPath) {
 		let beerID: Int = beers[indexPath.row].id
-		/*print("The BeerName of the clicked cell is: \(beers[indexPath.row].name) (in BeersCollectionPresenter)")
-		print("BeerID: \(beerID) (in BeersCollectionPresenter)")*/
 		
 		wireframe?.navigate(to: beerID)
 	}
