@@ -175,9 +175,8 @@ extension BeersCollectionViewController: UICollectionViewDataSource {
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let viewModel = presenter?.cellViewModel(at: indexPath), let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeerCollectionViewCell", for: indexPath) as? BeerCollectionViewCell else {
-			fatalError("Error creating BeerCollectionViewCell")
-		}
+		guard let viewModel = presenter?.cellViewModel(at: indexPath),
+			  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeerCollectionViewCell", for: indexPath) as? BeerCollectionViewCell else { return UICollectionViewCell() }
 			
 		cell.configure(with: viewModel)
 		

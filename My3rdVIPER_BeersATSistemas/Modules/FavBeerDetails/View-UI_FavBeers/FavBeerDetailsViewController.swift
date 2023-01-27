@@ -64,7 +64,7 @@ class FavBeerDetailsViewController: UIViewController, FavBeerDetailsViewContract
 			tempFoodPairing.append(favBeerFoodPairingAux)
 		}
 		
-		 self.favBeerFoodPairingLbl.text = tempFoodPairing.joined(separator: "")
+		self.favBeerFoodPairingLbl.text = tempFoodPairing.joined(separator: "")
 		// ** Finished the Filling of the Favorite Beer Food Pairing Label **
 		
 		self.favBeerTipsLbl.text 	   		  = favoriteBeer.favBeerBrewerTips
