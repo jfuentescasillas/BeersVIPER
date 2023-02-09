@@ -167,8 +167,7 @@ extension FavoriteBeersViewController: UITableViewDataSource {
 	
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let viewModel = presenter?.cellViewModel(at: indexPath) else { fatalError("Error creating the FavoriteCell ViewModel") }
-		
+		guard let viewModel = presenter?.cellViewModel(at: indexPath) else { return UITableViewCell() }		
 		guard let favBeerCell = favBeersTableView.dequeueReusableCell(withIdentifier: "FavoriteBeerCell", for: indexPath) as? FavoriteBeersTableViewCell else { return UITableViewCell() }
 		
 		favBeerCell.configure(with: viewModel)

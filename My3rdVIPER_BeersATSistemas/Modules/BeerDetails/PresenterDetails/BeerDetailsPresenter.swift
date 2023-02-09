@@ -140,7 +140,7 @@ extension BeerDetailsPresenter: BeerDetailsInteractorOutputContract {
 		guard let tempBeer = self.beer else { return }
 		
 		let beerViewModel  = tempBeer.toDetailsViewModel
-		//print("BeerViewModel: \(String(describing: beerViewModel))")
+		print("BeerViewModel: \(String(describing: beerViewModel))")
 		
 		view?.configure(with: beerViewModel)
 		view?.stopAndHideActivity()

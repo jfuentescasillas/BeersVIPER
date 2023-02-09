@@ -54,7 +54,7 @@
 
 // Alert controller messages
 "alertControllerInvalidQueryTitle" = "Requête invalide";
-"alertControllerInvalidQueryMsg"   = "Le contenu de la recherche ne peut pas être vide. Veuillez utiliser une valeur valide afin de rechercher une bière dans votre liste de bière favorites.";
+"alertControllerInvalidQueryMsg"   = "Le contenu de la recherche ne peut pas être vide. Veuillez utiliser une valeur valide afin de rechercher une bière dans votre liste de bières favorites.";
 
 // Presenter
 // Alert controller messages
